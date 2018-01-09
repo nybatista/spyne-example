@@ -1,1 +1,1 @@
-a boilerplate example of a spyne single-page-application
+A boilerplate example of a spyne single-page-application.
