@@ -1,0 +1,34 @@
+
+$huge: 1200px;
+$large: 1024px;
+$medium: 768px;
+$small:480px;
+$thin: 320px;
+
+// ===============
+// COLORS
+// ===============
+$editor-border: rgba(0,0,0,.5);
+
+$text-content-hilight: rgba(0,0,0,.5);
+
+
+
+// =====================
+// z-index
+// =====================
+
+$z-index-editor:500;
+
+
+:root {
+    --large-size: 18px;
+    --num:5;
+    --breakpoint-large: $large;
+    --breakpoint-medium: $medium;
+    --breakpoint-small: $small;
+    --breakpoint-thin: $thin;
+
+
+}
+
