@@ -1,2 +1,1 @@
-run 'sh init-setup.sh'
-this will install symlinks to img and css directories.
+a boilerplate example of a spyne single-page-application
