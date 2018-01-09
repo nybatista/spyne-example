@@ -10,7 +10,6 @@ export class AppView extends ViewStream {
     afterRender(){
 
 
-        this.props.el.textContent='example app';
 
     }
 

@@ -1,0 +1,62 @@
+#example-app {
+
+    section#menu {
+        position:relative;
+        width:100%;
+        display:flex;
+        flex-direction: row;
+        color:#fff;
+        header#navbar {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: darkblue;
+            padding: 2px 0 8px 0;
+
+            box-shadow: 0 3px 3px  rgba(0,0,0,.3);
+            width: 100%;
+
+            h4,h6{
+                position:relative;
+                padding:0 10px;
+                margin:0 2px;
+            }
+
+
+        }
+
+
+        svg{
+            position: relative;
+            left:0;
+            top:0;
+            width: 30px;
+            height: 30px;
+
+                .hamburger-circle{
+                    fill:none;
+                    stroke:#000;
+                    stroke-width: 2px;
+                }
+
+
+
+                .hamburger-line{
+                    fill:none;
+                    stroke:#000;
+                    stroke-linecap:round;
+                    stroke-width:2px;
+
+                }
+
+
+        }
+
+
+    }
+
+
+
+
+}
