@@ -1,10 +1,13 @@
 #example-app {
 
     section#menu {
-        position:relative;
+        position: fixed;
+        top:0;
         width:100%;
         display:flex;
         flex-direction: row;
+        z-index: $z-index-menu;
+
         color:#fff;
         header#navbar {
             position: relative;
