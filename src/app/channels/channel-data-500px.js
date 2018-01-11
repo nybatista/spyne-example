@@ -1,6 +1,6 @@
 import Rx from "rxjs";
 import R from "ramda";
-import {ChannelsBase} from 'spyne';
+import {ChannelsBase} from 'spynejs';
 import 'whatwg-fetch';
 
 

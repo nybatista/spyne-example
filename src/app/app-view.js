@@ -1,4 +1,4 @@
-import {ViewStream} from "spyne";
+import {ViewStream} from "spynejs";
 import {ChannelData500px} from './channels/channel-data-500px';
 import {ImageContainerView} from './components/images-component/image-container-view';
 export class AppView extends ViewStream {

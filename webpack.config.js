@@ -24,7 +24,7 @@ module.exports = env => {
         //const uglifier = new UglifyJsPlugin({minimize: true});
         allPlugins.push(new UglifyJsPlugin());
         //https://creativeholder.com/dist/spyne/spyne.min.js
-        allPlugins.push(
+       /* allPlugins.push(
             new WebpackCdnPlugin({
                 prod: true,
                 prodUrl: '//creativeholder.com/dist/spyne/spyne.min.js',
@@ -68,7 +68,7 @@ module.exports = env => {
 
         );
 
-
+*/
 
 
     }

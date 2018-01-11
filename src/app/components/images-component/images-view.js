@@ -1,6 +1,6 @@
 // import Rx from "rxjs";
 // const R = require('ramda');
-import {ViewStream} from 'spyne';
+import {ViewStream} from 'spynejs';
 
 export class ImagesView extends ViewStream {
 
