@@ -1,0 +1,55 @@
+#example-app {
+    #images-container {
+        position: relative;
+        width: 100vw;
+        background: #fafafa;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        article {
+            position: relative;
+            max-width: 50vh;
+
+
+            dl {
+                position: relative;
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                max-height: 30vh;
+               // width:80%;
+                overflow: hidden;
+                color:#000;
+
+                dt {
+                    position: relative;
+                    width: 100vw;
+                    height: 100vh;
+                    img {
+                        position:absolute;
+                        float:left;
+                    }
+                    span {
+                        position:relative;
+                        display:inline;
+                        color:#fff;
+                        z-index: 100;
+                    }
+
+                }
+
+                dd{
+                    position:relative;
+                    width:100%;
+                    margin:0;
+                    padding:10px 0;
+                }
+            }
+
+        }
+
+    }
+
+}

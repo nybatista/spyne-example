@@ -20,7 +20,8 @@
   "dependencies": {
     "ramda": "^0.25.0",
     "rxjs": "^5.5.6",
-    "spyne": "^0.7.0"
+    "spyne": "^0.7.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel": "^6.23.0",
