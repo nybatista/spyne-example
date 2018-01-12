@@ -45,10 +45,18 @@ export class PhotogsContainerView extends ViewStream {
 	    console.log("load images in photogs ", this.userData);
     }
 
-	afterRender() {
+
+
+    afterRender() {
+
+
+
         const img$ = this.getChannel("ChannelData500px")
         .take(1)
         .subscribe(this.loadImages.bind(this));
-	}
+
+
+
+    }
 
 }

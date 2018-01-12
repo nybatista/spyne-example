@@ -3,6 +3,7 @@
 import {ViewStream} from 'spynejs';
 import {ImageContainerView} from '../images-component/image-container-view';
 import {PhotogsContainerView} from '../photographers-component/photogs-container-view';
+import {PageView} from './page-view';
 
 export class PagesHolderView extends ViewStream {
 
@@ -15,7 +16,9 @@ export class PagesHolderView extends ViewStream {
 
 	addActionMethods() {
 		// return nexted array(s)
-		return [];
+		return [
+            ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent']
+        ];
 	}
 
 	broadcastEvents() {
@@ -23,9 +26,17 @@ export class PagesHolderView extends ViewStream {
 		return [];
 	}
 
-	afterRender() {
-	    this.appendView(new PhotogsContainerView());
+    onRouteChangeEvent(e){
+        console.log(' route event in page holder is ',e);
+    }
+
+
+    afterRender() {
+	   // this.appendView(new PhotogsContainerView());
        // this.appendView(new ImageContainerView());
+        this.appendView(new PageView());
+
+        this.addChannel('ROUTE', true);
 
 	}
 

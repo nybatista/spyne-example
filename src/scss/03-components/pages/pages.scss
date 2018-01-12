@@ -1,0 +1,29 @@
+#pages-holder{
+    position:relative;
+
+    .page-view {
+        position:relative;
+        display:flex;
+        flex-direction:column;
+
+            section.empty{
+                position: relative;
+                display:flex;
+                width:100vw;
+                height:100vh;
+                background: hsl(0,0,85);
+                //background: silver;
+                justify-content: center;
+                align-items: center;
+
+
+            }
+
+
+    }
+
+
+
+
+
+}

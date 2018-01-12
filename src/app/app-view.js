@@ -10,7 +10,6 @@ export class AppView extends ViewStream {
 
     addActionMethods() {
         return [
-            ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent']
         ];
 
     }
@@ -22,15 +21,11 @@ export class AppView extends ViewStream {
         ];
     }
 
-    onRouteChangeEvent(e){
-        console.log(' route event is ',e);
-    }
 
 
 
     afterRender(){
 
-        this.addChannel('ROUTE');
         this.appendView(new AppMenuView());
         this.appendView(new PagesHolderView());
 
