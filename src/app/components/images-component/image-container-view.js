@@ -7,6 +7,7 @@ export class ImageContainerView extends ViewStream {
 
 	constructor(props = {}) {
         props.tagName='section';
+        props['class']='page-content';
         props.id='images-container';
 		super(props);
 

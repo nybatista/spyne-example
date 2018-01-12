@@ -1,6 +1,6 @@
 import {ViewStream} from "spynejs";
-import {ChannelData500px} from './channels/channel-data-500px';
-import {ImageContainerView} from './components/images-component/image-container-view';
+import {PagesHolderView} from './components/pages/pages-holder-view';
+import {AppMenuView} from './components/app/app-menu-view';
 export class AppView extends ViewStream {
 
     constructor(props={}){
@@ -31,7 +31,8 @@ export class AppView extends ViewStream {
     afterRender(){
 
         this.addChannel('ROUTE');
-        this.appendView(new ImageContainerView());
+        this.appendView(new AppMenuView());
+        this.appendView(new PagesHolderView());
 
 
     }
