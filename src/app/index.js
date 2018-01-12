@@ -5,13 +5,13 @@
 
 const css = require("./../scss/main.scss");
 
-import {Spyne, ViewStream} from "spynejs";
+import {Spynejs, ViewStream} from "spynejs";
  import {ChannelData500px} from './channels/channel-data-500px';
 
 
-const spyneApp = new Spyne();
+const spyneApp = new Spynejs();
 
-console.log("SPYNE ",spyneApp);
+//console.log("SPYNE ",spyneApp);
  spyneApp.registerChannel('ChannelData500px', new ChannelData500px());
 /*
 

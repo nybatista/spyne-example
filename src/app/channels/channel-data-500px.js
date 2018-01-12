@@ -26,7 +26,7 @@ export class ChannelData500px extends ChannelsBase {
 
 
         let response$ = Rx.Observable.fromPromise(fetch(this.dataUrl))
-        .do((p)=>console.log('rxjs jsoin ',p))
+       // .do((p)=>console.log('rxjs jsoin ',p))
         .flatMap(r => Rx.Observable.fromPromise(r.json()))
         .multicast(this.observer$);
 

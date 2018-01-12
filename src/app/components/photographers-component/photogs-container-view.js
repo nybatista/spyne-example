@@ -28,7 +28,7 @@ export class PhotogsContainerView extends ViewStream {
 	    this.data = p.photos;
 
 	    const addNewPhotog = (data)=>{
-	        console.log('user is ',data);
+	       // console.log('user is ',data);
 	        this.appendView(new PhotogsView({data}));
         };
 	    const returnUser = d => d.user;
@@ -42,12 +42,13 @@ export class PhotogsContainerView extends ViewStream {
         this.userData = removeDuplicates(this.userData, 'id');
 
         this.userData.forEach(addNewPhotog);
-	    console.log("load images in photogs ", this.userData);
+	    //console.log("load images in photogs ", this.userData);
     }
 
 
 
     afterRender() {
+
 
 
 
