@@ -40,7 +40,7 @@ export class ImageContainerView extends ViewStream {
 
 	    this.photosData.forEach(loadImg);
 
-       console.log("image data in load images ",this.photosData,' -- ',p);
+       //console.log("image data in load images ",this.photosData,' -- ',p);
 
     }
 

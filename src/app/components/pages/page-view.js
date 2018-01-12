@@ -58,15 +58,27 @@ export class PageView extends ViewStream {
 
     }
 
+    getLocationVal(){
+        let str = window.location.pathname;
+        if (str.length>1){
+            const re = /^\//g;
+            str = str.replace(re, '');
+        }
+        return str;
+
+    }
+
 
     afterRender() {
         const routeData = this.props.routeInfo;
        // console.log("this pageview is ",this);
 
         const isPageId = routeData !== undefined && routeData.data !== undefined && routeData.data.pageId !== undefined;
-        const val = isPageId  === true ? routeData.data.pageId : routeData.routeVal;
+        const val = isPageId  === true ? routeData.data.pageId : this.getLocationVal();
         const classType = this.getPageType(val);
-	    ///this.classType = this.getPageType(this.props.type);
+        //console.log("page View ",{routeData,val, classType});
+
+        ///this.classType = this.getPageType(this.props.type);
       //  console.log("page view type ",val,classType);
 
         this.appendView(new classType());
