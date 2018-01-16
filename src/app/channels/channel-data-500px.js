@@ -1,7 +1,7 @@
 import Rx from "rxjs";
 import R from "ramda";
 import {ChannelsBase} from 'spynejs';
-//import 'whatwg-fetch';
+import 'whatwg-fetch';
 
 
 export class ChannelData500px extends ChannelsBase {
@@ -27,7 +27,7 @@ export class ChannelData500px extends ChannelsBase {
 
         console.log('data url is ',this.props);
         let response$ = Rx.Observable.fromPromise(fetch(this.props.dataUrl))
-       // .do((p)=>console.log('rxjs jsoin ',p))
+        .do((p)=>console.log('rxjs jsoin ',p))
         .flatMap(r => Rx.Observable.fromPromise(r.json()))
         .multicast(this.observer$);
 
