@@ -1,5 +1,5 @@
 import Rx from "rxjs";
-import R from "ramda";
+//import R from "ramda";
 import {ChannelsBase} from 'spynejs';
 import 'whatwg-fetch';
 
@@ -25,10 +25,25 @@ export class ChannelData500px extends ChannelsBase {
 
     fetchData(){
 
+        const removeNull = (p)=>{
+            const checkNullDesc  = (img)=> {
+                img.description = img.description === null
+                    ? img.name
+                    : img.description;
+                return img;
+            };
+           p.photos = p.photos.map(checkNullDesc);
+            return p;
+
+        };
+
+
+
         console.log('data url is ',this.props);
         let response$ = Rx.Observable.fromPromise(fetch(this.props.dataUrl))
-        .do((p)=>console.log('rxjs jsoin ',p))
         .flatMap(r => Rx.Observable.fromPromise(r.json()))
+        .map(removeNull)
+        //.do((p)=>console.log('rxjs jsoin ',p))
         .multicast(this.observer$);
 
         response$.connect();

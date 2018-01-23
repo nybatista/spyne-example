@@ -27,25 +27,13 @@ export class PagesHolderView extends ViewStream {
 	}
 
     onRouteChangeEvent(e){
-       // console.log(' route event in page holder is ',e);
         const routeInfo = e;
         this.appendView(new PageView({routeInfo}));
-
     }
 
 
     afterRender() {
-	   // this.appendView(new PhotogsContainerView());
-       // this.appendView(new ImageContainerView());
-
         this.addChannel('ROUTE');
-
-
-       // const adder = ()=>);
-       // window.setTimeout(adder, 2000);
-
-       // adder();
-
 	}
 
 }

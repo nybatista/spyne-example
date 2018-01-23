@@ -14,7 +14,7 @@ module.exports = env => {
         disable: env === "development"
     });
     const htmlPlugin = new HtmlWebpackPlugin({
-        title: 'example',
+        title: 'spynejs-example',
         template: './src/index.html.ejs'
     });
 

@@ -15,7 +15,7 @@
             position: relative;
             max-width: 750px;
             padding:10px 0;
-            min-width: 300px;
+            min-width: 320px;
 
 
             dl {
@@ -26,10 +26,11 @@
                 margin:0;
                 padding:0;
                 background: hsl(0,0,90);
+               // background: orange;
                 border-radius: 2px;
                 width:100%;
-                min-width: 300px;
-                min-height: 200px;
+               // min-width: 300px;
+               // min-height: 200px;
                 // max-height: 30vh;
                // width:80%;
                 overflow: hidden;
@@ -46,14 +47,14 @@
                 dt {
                     position: relative;
                     width: 100%;
-                    object-fit: contain;
+                   // object-fit: contain;
                     padding:0;
                     margin:0;
 
                     img {
                         position:relative;
-                        width: 100%;
-                        object-fit: contain;
+                       // width: 100%;
+                       // object-fit: contain;
                         padding:0;
                         margin:0;
                     }
