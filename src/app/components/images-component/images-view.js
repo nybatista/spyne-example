@@ -23,6 +23,19 @@ export class ImagesView extends ViewStream {
 	}
 
 	afterRender() {
+	    let img = this.props.el$.query('img').el;
+
+	    const onLoad = (e)=>{
+	      console.log('img loaded ',e);
+	      img.classList.add('reveal');
+	      this.props.el$.query('aside').el.remove();
+	      img.onload = ()=>{};
+	      img = undefined;
+        };
+
+       // img.addEventListener('onload', onLoad);
+        img.onload = onLoad;
+
 
 	}
 

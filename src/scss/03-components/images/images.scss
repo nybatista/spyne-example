@@ -16,7 +16,7 @@
             max-width: 750px;
             padding:10px 0;
             min-width: 320px;
-
+            width:100%;
 
             dl {
                 position: relative;
@@ -50,13 +50,20 @@
                    // object-fit: contain;
                     padding:0;
                     margin:0;
-
+                   // padding-bottom: 66.67%;
+                    transition: all .25s ease;
                     img {
-                        position:relative;
-                       // width: 100%;
+                        position:absolute;
+                        width: 100%;
                        // object-fit: contain;
                         padding:0;
                         margin:0;
+                        opacity: 0;
+                        transition: opacity .5s ease;
+
+                        &.reveal{
+                            opacity: 1;
+                        }
                     }
                     span {
                         position:absolute;
@@ -72,7 +79,12 @@
                     position:relative;
                     width:100%;
                     margin:0;
-                    padding:0 10px;
+                    padding: 10px;
+                    p {
+                        position: relative;
+                        margin:0;
+                        padding:0;
+                    }
 
                 }
             }
