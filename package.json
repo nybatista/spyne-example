@@ -18,6 +18,7 @@
   "author": "Frank Batista",
   "license": "ISC",
   "dependencies": {
+    "gsap": "^1.20.3",
     "ramda": "^0.25.0",
     "rxjs": "^5.5.6",
     "spynejs": "^0.7.9",

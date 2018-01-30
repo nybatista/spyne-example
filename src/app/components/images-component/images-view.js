@@ -19,19 +19,31 @@ export class ImagesView extends ViewStream {
 
 	broadcastEvents() {
 		// return nexted array(s)
-		return [];
+		return [
+		    ['article', 'click']
+        ];
 	}
+
+	onClick(e){
+	    console.log("e is ",e.data.el === this.props.el, e.data.el, this.props.el);
+	    this.props.el$.addClass('expand');
+    }
 
 	afterRender() {
 	    let img = this.props.el$.query('img').el;
 
 	    const onLoad = (e)=>{
-	      console.log('img loaded ',e);
+	      //console.log('img loaded ',e);
 	      img.classList.add('reveal');
 	      this.props.el$.query('aside').el.remove();
 	      img.onload = ()=>{};
 	      img = undefined;
         };
+
+
+	    this.getChannel('UI')
+            .filter(p => p.data.el === this.props.el)
+            .subscribe(this.onClick.bind(this));
 
        // img.addEventListener('onload', onLoad);
         img.onload = onLoad;
