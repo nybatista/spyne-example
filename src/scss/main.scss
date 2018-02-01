@@ -10,6 +10,19 @@
 @import "03-components/pages/pages.scss";
 
 
+html {
+  //  position:fixed;
+    position: relative;
+    overflow:default;
+    &.expand {
+        position: fixed;
+        overflow: hidden;;
+        //touch-action: none;
+       // pointer-events: none;
+    }
+
+
+}
 
 
 
@@ -81,7 +94,7 @@ body {
 
     #example-app {
         position: relative;
-        width: 100%;
+        width: 100vw;
         background: #fff;
         display: flex;
         // flex-direction: column;

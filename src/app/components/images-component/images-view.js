@@ -1,6 +1,9 @@
 // import Rx from "rxjs";
 // const R = require('ramda');
 import {ViewStream} from 'spynejs';
+import {TweenMax} from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
+
 
 export class ImagesView extends ViewStream {
 
@@ -9,6 +12,7 @@ export class ImagesView extends ViewStream {
         props.tmpl = require("./templates/images-view.tmpl.html");
 
 		super(props);
+
 
 	}
 
@@ -27,10 +31,25 @@ export class ImagesView extends ViewStream {
 	onClick(e){
 	    console.log("e is ",e.data.el === this.props.el, e.data.el, this.props.el);
 	    this.props.el$.addClass('expand');
+
+	    const topNum = this.props.el.offsetTop+45;
+
+
+
+        TweenMax.to(window, .3, {scrollTo:topNum, ease:Sine.easeInOut});
+        window.setTimeout(this.hideOverflow.bind(this),150);
+
+    }
+
+    hideOverflow(bool=true){
+        let elHtml = document.querySelector('html');
+        elHtml.classList.toggle('expand',bool);
     }
 
 	afterRender() {
+
 	    let img = this.props.el$.query('img').el;
+	    this.hideOverflow(false);
 
 	    const onLoad = (e)=>{
 	      //console.log('img loaded ',e);

@@ -7,6 +7,10 @@
         display:flex;
         flex-direction: row;
         z-index: $z-index-menu;
+        transition: top .5s ease;
+        &.hide{
+            top:-45px;
+        }
 
         color:#fff;
         header#navbar {

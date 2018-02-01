@@ -14,16 +14,31 @@ export class AppMenuView extends ViewStream {
 
 	addActionMethods() {
 		// return nexted array(s)
-		return [];
+		return [
+		    ['SCROLL_EVENT', 'onScrollEvent']
+        ];
 	}
 
-	broadcastEvents() {
+
+
+    broadcastEvents() {
 		// return nexted array(s)
 		return [];
 	}
 
-	afterRender() {
+	onScrollEvent(e){
+	    console.log('scroll event is ',e);
+	    const shouldScroll = e.scrollY >= 45;
+	    this.props.el.classList.toggle('hide', shouldScroll);
+    }
 
+	afterRender() {
+	    this.addChannel('DOM');
+
+	 /*  this.getChannel('DOM')
+            .subscribe((p)=>{
+                console.log(' event is ',p);
+        });*/
 	}
 
 }

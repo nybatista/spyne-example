@@ -19,21 +19,25 @@
             min-width: 320px;
             width:100%;
             background: hsl(0,0,90);
+/*
             // background: orange;
             border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
             //transition: all 0.125s cubic-bezier(.25,.8,.25,1);
-            height: 360px;
-            transition: all 1s ease-in-out;
+            // height: 360px;
+            height: 580px;
+            transition: all .3s  ease-in-out;
 
             &:hover {
-                box-shadow: 0 7px 8px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+               // box-shadow: 0 7px 8px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 
             }
 
             &.expand{
                 height: 100vh;
-                transition: all 1s ease-in-out;
+                width: 100vw;
+                pointer-events: none;
+                touch-action: none;
 
                 /* dl {
                      height: 100vh;
@@ -61,13 +65,13 @@
                 overflow: hidden;
                 color:#000;
 
-              /*  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                //box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
                 transition: all 0.125s cubic-bezier(.25,.8,.25,1);
 
                 &:hover {
-                        box-shadow: 0 7px 8px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+                    //    box-shadow: 0 7px 8px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 
-                }*/
+                }
 
                 dt {
                     position: relative;
