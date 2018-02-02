@@ -18,15 +18,21 @@ export class ImagesView extends ViewStream {
 
 	addActionMethods() {
 		// return nexted array(s)
-		return [];
+		return [
+            ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent']
+        ];
 	}
 
 	broadcastEvents() {
 		// return nexted array(s)
 		return [
-		    ['article', 'click']
+		    ['article dl', 'click']
         ];
 	}
+
+    onRouteChangeEvent(e){
+	    console.log('route change event in images ',e);
+    }
 
 	onClick(e){
 	    console.log("e is ",e.data.el === this.props.el, e.data.el, this.props.el);

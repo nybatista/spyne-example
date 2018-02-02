@@ -67,7 +67,7 @@ export class PageView extends ViewStream {
     afterRender() {
         const routeData = this.props.routeInfo;
         const isPageId = routeData !== undefined && routeData.data !== undefined && routeData.data.pageId !== undefined;
-        const val = isPageId  === true ? routeData.data.pageId : this.getLocationVal();
+        const val = isPageId  === true ? routeData.data.pageId.split('/')[0] : this.getLocationVal();
         const classType = this.getPageType(val);
         this.appendView(new classType());
         this.addChannel('ROUTE');

@@ -27,7 +27,9 @@ export class ImageContainerView extends ViewStream {
 
 	loadImages(p){
 	    this.photosData = p.photos;
-	    const loadImg = (data)=>{
+	    const loadImg = (data, i)=>{
+	        data['index-num']=i+1;
+	        console.log('data ',data);
 	        this.appendView(new ImagesView({data}));
         };
 
