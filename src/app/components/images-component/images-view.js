@@ -34,10 +34,23 @@ export class ImagesView extends ViewStream {
 
 	    const topNum = this.props.el.offsetTop+45;
 
+        let elHtml = document.querySelector('html');
+        const scrollNum = window.pageYOffset;
 
+        let moveWindow = ()=> {
+            this.hideOverflow(true);
 
-        TweenMax.to(window, .3, {scrollTo:topNum, ease:Sine.easeInOut});
-        window.setTimeout(this.hideOverflow.bind(this),150);
+            //elHtml.scrollTo(0, 0);
+            window.pageYOffset = 0;
+            const styleStr = `top:${scrollNum * -1}px;`;
+            elHtml.style.cssText = styleStr;
+            console.log({elHtml, styleStr, topNum});
+
+        };
+        moveWindow();
+        //window.setTimeout(moveWindow,1000);
+        TweenMax.to(elHtml, .3, {top:topNum*-1, ease:Sine.easeInOut});
+        //window.setTimeout(this.hideOverflow.bind(this),150);
 
     }
 

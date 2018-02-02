@@ -14,6 +14,7 @@ html {
   //  position:fixed;
     position: relative;
     overflow:default;
+    //will-change: scroll-position, top;
     &.expand {
         position: fixed;
         overflow: hidden;;
