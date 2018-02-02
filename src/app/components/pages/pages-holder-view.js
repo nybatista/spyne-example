@@ -17,6 +17,28 @@ export class PagesHolderView extends ViewStream {
 
 	getRouteInfoJson(path){
 
+	    const routeConfig = {
+            "route": {
+                "param": "pageId",
+                "map": {
+                    "page-one": {
+                        "map": "images",
+                        "route": {
+                            "param": "imageNum"
+                        }
+                    },
+                    "page-two": {
+                        "map": "photogs",
+                        "route": {
+                            "param": "photogNum"
+                        }
+                    }
+                }
+            }
+        };
+
+
+
 	    let arr = path.slice(1).split('/');
         // MAKE JUST routeParam, routeValue
         const routeData = {
