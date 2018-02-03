@@ -4,7 +4,42 @@ import {Spyne, ViewStream} from 'spynejs';
 import {ChannelData500px} from './channels/channel-data-500px';
 
 const css = require("./../scss/main.scss");
-const spyneApp = new Spyne();
+let spyneConfig = {
+
+   channels: {
+       ROUTE: {
+           type: "slash", /* "slash", "hash", "params" */
+           routes: {
+               "route": {
+                   "param": "pageId",
+                   "map": {
+                       "page-one": {
+                           "map": "images",
+                           "route": {
+                               "param": "imageNum"
+                           }
+                       },
+                       "page-two": {
+                           "map": "photogs",
+                           "route": {
+                               "param": "photogNum"
+                           }
+                       }
+                   }
+               }
+           }
+
+       }
+   }
+
+};
+
+
+console.log("CHANNEL CONFIG ",spyneConfig);
+
+
+
+const spyneApp = new Spyne(spyneConfig);
 spyneApp.registerChannel('ChannelData500px', new ChannelData500px());
 
 const App = new AppView({
@@ -13,4 +48,4 @@ const App = new AppView({
 
 
 const R = require("ramda");
-window.theR = R;
+window.R = R;
