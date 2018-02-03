@@ -16,12 +16,12 @@ export class ImagesView extends ViewStream {
 
 	}
 
-	addActionMethods() {
-		// return nexted array(s)
-		return [
+    addActionMethods() {
+        // return nexted array(s)
+        return [
             ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent']
         ];
-	}
+    }
 
 	broadcastEvents() {
 		// return nexted array(s)
@@ -31,11 +31,15 @@ export class ImagesView extends ViewStream {
 	}
 
     onRouteChangeEvent(e){
-	    console.log('route change event in images ',e);
+        console.log("IMAGE: ",e.data.imageNum,this.props.data.indexNum,e.data.imageNum*1 === this.props.data.indexNum );
+
+        if (e.data.imageNum*1 === this.props.data.indexNum){
+             this.onAnimate(e);
+        }
     }
 
-	onClick(e){
-	    console.log("e is ",e.data.el === this.props.el, e.data.el, this.props.el);
+	onAnimate(e){
+	 //   console.log("e is ",e.data.el === this.props.el, e.data.el, this.props.el);
 	    this.props.el$.addClass('expand');
 
 	    const topNum = this.props.el.offsetTop+45;
@@ -67,6 +71,8 @@ export class ImagesView extends ViewStream {
 
 	afterRender() {
 
+	    this.addChannel('ROUTE');
+
 	    let img = this.props.el$.query('img').el;
 	    this.hideOverflow(false);
 
@@ -79,10 +85,10 @@ export class ImagesView extends ViewStream {
         };
 
 
-	    this.getChannel('UI')
+	  /*  this.getChannel('UI')
             .filter(p => p.data.el === this.props.el)
             .subscribe(this.onClick.bind(this));
-
+*/
        // img.addEventListener('onload', onLoad);
         img.onload = onLoad;
 

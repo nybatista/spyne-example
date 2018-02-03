@@ -45,7 +45,7 @@ export class PageView extends ViewStream {
     onRouteChangeEvent(e){
 
         //console.log(' route event in page view is ',e,this);
-        if (this.disposeReady === true) {
+        if (this.disposeReady === true && e.data.hasOwnProperty('imageNum')===false) {
             // super.onDispose();
             this.onDispose(e)
         }
