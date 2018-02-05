@@ -31,7 +31,7 @@ export class ImagesView extends ViewStream {
 	}
 
     onRouteChangeEvent(e){
-        console.log("IMAGE: ",e.data.imageNum,this.props.data.indexNum,e.data.imageNum*1 === this.props.data.indexNum );
+       // console.log("IMAGE: ",e.data.imageNum,this.props.data.indexNum,e.data.imageNum*1 === this.props.data.indexNum );
 
         if (e.data.imageNum*1 === this.props.data.indexNum){
              this.onAnimate(e);
