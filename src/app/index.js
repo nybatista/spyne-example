@@ -4,7 +4,7 @@ import {Spyne, ViewStream} from 'spynejs';
 import {ChannelData500px} from './channels/channel-data-500px';
 
 const css = require("./../scss/main.scss");
-let spyneConfig = {
+let spyneConfigOld = {
 
    channels: {
        ROUTE: {
@@ -31,6 +31,34 @@ let spyneConfig = {
 
        }
    }
+
+};
+
+
+let spyneConfig = {
+
+    channels: {
+        ROUTE: {
+            type: "slash", /* "slash", "hash", "query" */
+            routes: {
+                "route": {
+                    "param": "pageId",
+                    "page-one": {
+                        "route": {
+                            "param": "imageNum"
+                        }
+                    },
+                    "page-two": {
+                        "route": {
+                            "param": "photogNum"
+                        }
+                    }
+                }
+
+            }
+
+        }
+    }
 
 };
 
