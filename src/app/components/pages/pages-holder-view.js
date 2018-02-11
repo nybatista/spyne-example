@@ -102,7 +102,8 @@ export class PagesHolderView extends ViewStream {
 	}
 
     onRouteChangeEvent(e){
-        const routeInfo = e;
+	    console.log('route is ',e);
+        /*const routeInfo = e;
 
         //let newObj = this.getRouteInfoJson(window.location.pathname);
 
@@ -113,7 +114,7 @@ export class PagesHolderView extends ViewStream {
         console.log("new route obj  is ",e,' --- ',routeInfo.data.hasOwnProperty('imageNum'));
         if (routeInfo.data.hasOwnProperty('imageNum')===false) {
             this.appendView(new PageView({routeInfo}));
-        }
+        }*/
     }
 
 

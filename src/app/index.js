@@ -4,64 +4,38 @@ import {Spyne, ViewStream} from 'spynejs';
 import {ChannelData500px} from './channels/channel-data-500px';
 
 const css = require("./../scss/main.scss");
-let spyneConfigOld = {
-
-   channels: {
-       ROUTE: {
-           type: "slash", /* "slash", "hash", "params" */
-           routes: {
-               "route": {
-                   "param": "pageId",
-                   "map": {
-                       "page-one": {
-                           "map": "images",
-                           "route": {
-                               "param": "imageNum"
-                           }
-                       },
-                       "page-two": {
-                           "map": "photogs",
-                           "route": {
-                               "param": "photogNum"
-                           }
-                       }
-                   }
-               }
-           }
-
-       }
-   }
-
-};
 
 
-let spyneConfig = {
+const spyneConfig = {
 
     channels: {
         ROUTE: {
-            type: "slash", /* "slash", "hash", "query" */
+            type: 'slash', /* "slash", "hash", "query" */
             routes: {
-                "route": {
-                    "param": "pageId",
-                    "page-one": {
-                        "route": {
-                            "param": "imageNum"
-                        }
+                'route': {
+                    'param': 'pageId',
+                    'home': '',
+                    'page-one': {
+                        'route': {
+                            'param': 'imageNum',
+                            'route': {
+                                'param': 'author',
+                            },
+                        },
                     },
-                    "page-two": {
-                        "route": {
-                            "param": "photogNum"
-                        }
-                    }
-                }
+                    'page-two': {
+                        'route': {
+                            'param': 'photogNum',
+                        },
+                    },
+                },
 
-            }
+            },
 
-        }
-    }
+        },
+    },
 
 };
-
 
 console.log("CHANNEL CONFIG ",spyneConfig);
 
