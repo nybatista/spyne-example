@@ -18,7 +18,8 @@ export class AppView extends ViewStream {
 
     broadcastEvents() {
         return [
-            ['.nav-btn', 'click']
+            ['.nav-btn', 'click'],
+            ['.nav-btn-ui', 'click']
         ];
     }
 

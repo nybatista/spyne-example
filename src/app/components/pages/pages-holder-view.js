@@ -120,6 +120,8 @@ export class PagesHolderView extends ViewStream {
 
     afterRender() {
         this.addChannel('ROUTE');
+        this.getChannel('UI')
+            .subscribe(p=>console.log('ui payload ',p));
 	}
 
 }
