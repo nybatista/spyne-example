@@ -102,7 +102,7 @@ export class PagesHolderView extends ViewStream {
 	}
 
     onRouteChangeEvent(e){
-	    console.log('route is ',e);
+	    //console.log('route is ',e);
         /*const routeInfo = e;
 
         //let newObj = this.getRouteInfoJson(window.location.pathname);

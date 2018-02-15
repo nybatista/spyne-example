@@ -12,6 +12,7 @@ const spyneConfig = {
         ROUTE: {
             type: 'slash', /* "slash", "query" */
             isHash: false,
+            isHidden: false,
             routes: {
                 'route': {
                     'param': 'pageId',
