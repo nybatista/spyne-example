@@ -10,7 +10,8 @@ const spyneConfig = {
 
     channels: {
         ROUTE: {
-            type: 'slash', /* "slash", "hash", "query" */
+            type: 'slash', /* "slash", "query" */
+            isHash: false,
             routes: {
                 'route': {
                     'param': 'pageId',
@@ -48,6 +49,7 @@ const App = new AppView({
     el: document.getElementById('example-app')
 });
 
-
+const Rx = require('rxjs');
 const R = require("ramda");
 window.R = R;
+window.Rx = Rx;
