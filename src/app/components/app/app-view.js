@@ -24,12 +24,21 @@ export class AppView extends ViewStream {
     }
 
 
+    testSendPayload(){
+
+        let sendPayload = ()=>{
+           // this.sendUIPayload(new Rx.Observable.of(''), obj);]
+            this.sendChannelPayload('UI', {pageId:'lala'});
+        };
+
+        window.setTimeout(sendPayload, 2000);
+    }
 
 
     afterRender(){
         this.appendView(new AppMenuView());
         this.appendView(new PagesHolderView());
-
+        this.testSendPayload();
 
     }
 
