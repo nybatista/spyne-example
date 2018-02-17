@@ -21,15 +21,20 @@ const spyneConfig = {
                         'route': {
                             'param': 'imageNum',
                             'route': {
-                                'param': 'author',
+                                'param': 'author'
                             },
                         },
                     },
                     'page-two': {
                         'route': {
-                            'param': 'photogNum',
+                            'param': 'photogNum'
                         },
                     },
+                    'page-.*' : {
+                        'route': {
+                            'param': 'randomNum'
+                        }
+                    }
                 },
 
             },
