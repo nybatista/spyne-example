@@ -31,7 +31,7 @@ export class AppView extends ViewStream {
             this.sendChannelPayload('ROUTE', {pageId:'page-three', randomNum:5});
         };
 
-        window.setTimeout(sendPayload, 2000);
+        //window.setTimeout(sendPayload, 2000);
     }
 
 
