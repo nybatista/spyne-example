@@ -10,8 +10,8 @@ const spyneConfig = {
 
     channels: {
         ROUTE: {
-            type: 'slash', /* "slash", "query" */
-            isHash: false,
+            type: 'query', /* "slash", "query" */
+            isHash: true,
             isHidden: false,
             routes: {
                 'route': {

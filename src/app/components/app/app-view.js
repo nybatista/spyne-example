@@ -28,10 +28,13 @@ export class AppView extends ViewStream {
 
         let sendPayload = ()=>{
            // this.sendUIPayload(new Rx.Observable.of(''), obj);]
-            this.sendChannelPayload('ROUTE', {pageId:'page-three', randomNum:5});
+            let obj = {pageId: 'page-one', imageNum: '2', author: 'ubalu'};
+            obj = R.omit(['pageId'], obj);
+            //obj =  {randomNum:5};
+            this.sendChannelPayload('ROUTE', obj);
         };
 
-        //window.setTimeout(sendPayload, 2000);
+        window.setTimeout(sendPayload, 5000);
     }
 
 
