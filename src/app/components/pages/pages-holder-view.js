@@ -9,6 +9,7 @@ export class PagesHolderView extends ViewStream {
 
 	constructor(props = {}) {
         props.id='pages-holder';
+        props.tmpl = require("./templates/lorem-ipsum.tmpl.html");
         props['class']='stage';
 		super(props);
 

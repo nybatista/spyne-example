@@ -43,6 +43,11 @@ export class AppView extends ViewStream {
         this.appendView(new PagesHolderView());
         this.testSendPayload();
 
+        this.getChannel('DOM')
+            .subscribe((p)=>{
+                console.log('window event 1 ',p);
+        })
+
     }
 
 

@@ -9,6 +9,21 @@ const css = require("./../scss/main.scss");
 const spyneConfig = {
 
     channels: {
+
+        DOM: {
+
+            mediqQueries: [],
+            listenForReize: true,
+            listenForOrientation: true,
+            listenForScroll: true
+
+
+        },
+
+
+
+
+
         ROUTE: {
             type: 'query', /* "slash", "query" */
             isHash: true,
