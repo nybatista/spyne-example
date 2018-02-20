@@ -33,7 +33,7 @@ export class AppMenuView extends ViewStream {
     }
 
 	afterRender() {
-	    this.addChannel('DOM');
+	   // this.addChannel('DOM');
 
 	 /*  this.getChannel('DOM')
             .subscribe((p)=>{

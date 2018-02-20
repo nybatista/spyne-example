@@ -45,7 +45,7 @@ export class AppView extends ViewStream {
 
         this.getChannel('DOM')
             .subscribe((p)=>{
-                console.log('window event 1 ',p);
+                //console.log('window event 1 ',p);
         })
 
     }

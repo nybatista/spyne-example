@@ -11,18 +11,14 @@ const spyneConfig = {
     channels: {
 
         DOM: {
-
             mediqQueries: [],
-            listenForReize: true,
+            listenForResize: true,
             listenForOrientation: true,
-            listenForScroll: true
-
-
+            listenForScroll: true,
+            listenForMouseWheel: false,
+            debounceMSTimeForResize: 200,
+            debounceMSTimeForScroll: 150
         },
-
-
-
-
 
         ROUTE: {
             type: 'query', /* "slash", "query" */
