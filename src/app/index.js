@@ -11,7 +11,10 @@ const spyneConfig = {
     channels: {
 
         DOM: {
-            mediqQueries: [],
+            mediqQueries: {
+                "test" : "(max-width: 500px)",
+                "newTest" : "(max-width: 800px)"
+            },
             listenForResize: true,
             listenForOrientation: true,
             listenForScroll: true,
