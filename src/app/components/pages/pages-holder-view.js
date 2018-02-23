@@ -9,7 +9,7 @@ export class PagesHolderView extends ViewStream {
 
 	constructor(props = {}) {
         props.id='pages-holder';
-        props.tmpl = require("./templates/lorem-ipsum.tmpl.html");
+        props.template = require("./templates/lorem-ipsum.tmpl.html");
         props['class']='stage';
 		super(props);
 
@@ -102,8 +102,12 @@ export class PagesHolderView extends ViewStream {
 		return [];
 	}
 
+	onRouteDeepLink(e){
+	    console.log('route deep link ',e);
+    }
+
     onRouteChangeEvent(e){
-	    //console.log('route is ',e);
+	    console.log('route is ',e);
         /*const routeInfo = e;
 
         //let newObj = this.getRouteInfoJson(window.location.pathname);

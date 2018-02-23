@@ -24,8 +24,8 @@ const spyneConfig = {
         },
 
         ROUTE: {
-            type: 'query', /* "slash", "query" */
-            isHash: true,
+            type: 'slash', /* "slash", "query" */
+            isHash: false,
             isHidden: false,
             routes: {
                 'route': {

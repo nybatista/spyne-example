@@ -7,7 +7,7 @@ export class PageEmptyView extends ViewStream {
 	constructor(props = {}) {
         props.tagName='section';
         props['class']='empty';
-        props.tmpl = require("./templates/page-empty.tmpl.html");
+        props.template = require("./templates/page-empty.tmpl.html");
 		super(props);
 
 	}

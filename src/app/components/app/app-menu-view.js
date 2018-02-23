@@ -7,7 +7,7 @@ export class AppMenuView extends ViewStream {
 	constructor(props = {}) {
         props.tagName='section';
         props.id='menu';
-        props.tmpl = require("./templates/app-menu.tmpl.html");
+        props.template = require("./templates/app-menu.tmpl.html");
 		super(props);
 
 	}

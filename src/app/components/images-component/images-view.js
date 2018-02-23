@@ -9,7 +9,7 @@ export class ImagesView extends ViewStream {
 
 	constructor(props = {}) {
         props.tagName='article';
-        props.tmpl = require("./templates/images-view.tmpl.html");
+        props.template = require("./templates/images-view.tmpl.html");
 
 		super(props);
 

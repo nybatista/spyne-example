@@ -34,7 +34,7 @@ export class AppView extends ViewStream {
             this.sendChannelPayload('ROUTE', obj);
         };
 
-        window.setTimeout(sendPayload, 5000);
+        //window.setTimeout(sendPayload, 5000);
     }
 
 

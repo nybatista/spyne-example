@@ -7,7 +7,7 @@ export class PhotogsView extends ViewStream {
 	constructor(props = {}) {
 	    props.tagName = 'article';
 	    props['class']='photogs-view';
-        props.tmpl=require("./templates/photogs.tmp.html");
+        props.template=require("./templates/photogs.tmp.html");
 
 		super(props);
 
