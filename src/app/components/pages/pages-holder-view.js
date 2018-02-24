@@ -93,21 +93,40 @@ export class PagesHolderView extends ViewStream {
 	addActionMethods() {
 		// return nexted array(s)
 		return [
-            ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent']
+            ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent'],
+            ["CHANNEL_UI.*", 'onUIEvent'],
+            ["CHANNEL_DOM.*", 'onDomChannel']
         ];
 	}
 
 	broadcastEvents() {
 		// return nexted array(s)
-		return [];
+		return [
+		    ["#lorem-ipsum", "click"]
+
+        ];
 	}
 
+
+	onUIEvent(item){
+       if (this.isLocalEvent(item)){
+           console.log("LCOAL EVENT ", item)
+       } else {
+           console.log("GLOBAL EVENT ", item)
+
+       };
+
+    }
+    onDomChannel(e){
+	    console.log("CHANNEL DOM ",this.isLocalEvent(e));
+    }
+
 	onRouteDeepLink(e){
-	    console.log('route deep link ',e);
+	    console.log('route deep link ',e,this.isLocalEvent(e));
     }
 
     onRouteChangeEvent(e){
-	    console.log('route is ',e);
+        console.log('route  link ',e,this.isLocalEvent(e));
         /*const routeInfo = e;
 
         //let newObj = this.getRouteInfoJson(window.location.pathname);
@@ -125,8 +144,10 @@ export class PagesHolderView extends ViewStream {
 
     afterRender() {
         this.addChannel('ROUTE');
-        this.getChannel('UI')
-            .subscribe(p=>console.log('ui payload ',p));
+        this.addChannel("UI");
+        this.addChannel("DOM");
+      /*  this.getChannel('UI')
+            .subscribe(p=>console.log('ui payload ',p));*/
 	}
 
 }

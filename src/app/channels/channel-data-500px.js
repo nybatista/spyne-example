@@ -1,6 +1,6 @@
 import Rx from "rxjs";
 //const R = require('ramda');
-import {ChannelsBase} from 'spynejs';
+import {ChannelsBase, ChannelStreamItem} from 'spynejs';
 import 'whatwg-fetch';
 
 
@@ -23,31 +23,40 @@ export class ChannelData500px extends ChannelsBase {
 
     }
 
+    getRegisteredActionsArr() {
+        return [
+            'CHANNEL_DATA_EVENT',
+        ]
+    }
+
     fetchData(){
 
-        const updateData = (p)=>{
-            const checkNullDesc  = (img)=> {
+        const mapData = (data)=>{
+            const updates  = (img)=> {
                 img.description = img.description === null
                     ? img.name
                     : img.description;
-                return img;
-            };
-
-            const addPerspectiveNum = (img)=> {
                 img['perpsectiveNum'] = String((img.height / img.width)*100+"%");
+
                 return img;
             };
-            p.photos = p.photos.map(checkNullDesc);
-            p.photos = p.photos.map(addPerspectiveNum);
 
-            return p;
+            data.photos = R.map(updates, data.photos);
 
+            return data.photos;
+
+        };
+
+        const createChannelStreamItem = (payload)=>{
+            let action = 'CHANNEL_DATA_EVENT';
+            return new ChannelStreamItem(this.props.name, action, payload);
         };
 
 
         let response$ = Rx.Observable.fromPromise(fetch(this.props.dataUrl))
         .flatMap(r => Rx.Observable.fromPromise(r.json()))
-        .map(updateData)
+        .map(mapData)
+        .map(createChannelStreamItem)
         // .do((p)=>console.log('rxjs jsoin ',p))
         .multicast(this.observer$);
 
