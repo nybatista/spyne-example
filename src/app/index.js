@@ -23,24 +23,24 @@ const spyneConfig = {
             isHidden: false,
             routes: {
                 'route': {
-                    'param': 'pageId',
+                    'keyword': 'pageId',
                     'home': '',
                     'page-one': {
                         'route': {
-                            'param': 'imageNum',
+                            'keyword': 'imageNum',
                             'route': {
-                                'param': 'author'
+                                'keyword': 'author'
                             },
                         },
                     },
                     'page-two': {
                         'route': {
-                            'param': 'photogNum'
+                            'keyword': 'photogNum'
                         },
                     },
                     'page-.*' : {
                         'route': {
-                            'param': 'randomNum'
+                            'keyword': 'randomNum'
                         }
                     }
                 },
