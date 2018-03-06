@@ -1,5 +1,5 @@
 
-
+[![NPM version](https://img.shields.io/npm/v/spynejs.svg?longCache=true&style=flat-square)](https://www.npmjs.com/package/spynejs)
 [![Build](https://img.shields.io/travis/nybatista/spynejs.svg?longCache=true&style=flat-square)](https://travis-ci.org/nybatista/spynejs)
 ### test 2
 
