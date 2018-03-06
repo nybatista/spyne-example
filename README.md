@@ -1,5 +1,5 @@
 
-![Codecov](https://img.shields.io/codecov/c/github/nybatista/spynejs.svg?style=flat-square)
+[![Codecov](https://img.shields.io/codecov/c/github/nybatista/spynejs.svg?style=flat-square)](https://codecov.io/github/nybatista/spynejs)
 
 
 ### --- 
