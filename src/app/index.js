@@ -1,6 +1,6 @@
 
 import {AppView} from "./components/app/app-view";
-import {Spyne, ViewStream, ChannelsBaseData} from 'spynejs';
+import {SpyneApp, ViewStream, ChannelsBaseData} from 'spynejs';
 import {ChannelData500px} from './channels/channel-data-500px';
 
 const css = require("./../scss/main.scss");
@@ -56,7 +56,7 @@ const spyneConfig = {
 
 
 
-const spyneApp = new Spyne(spyneConfig);
+const spyneApp = new SpyneApp(spyneConfig);
 const mapFn = (data)=>{
     const updates  = (img)=> {
         img.description = img.description === null
@@ -72,7 +72,7 @@ const pixData = {
     dataUrl : "https://api.500px.com/v1/photos/search?term=10&exclude=people&consumer_key=XbScUOttPINmCIoKkeXhRmdBWCM5Nqf0LNZ9Siiv&image_size=5",
     name : 'ChannelData500px',
     map: mapFn
-}
+};
 
 //spyneApp.registerChannel('ChannelData500px', new ChannelData500px());
 spyneApp.registerDataChannel(new ChannelsBaseData(pixData));
