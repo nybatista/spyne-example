@@ -1,6 +1,4 @@
 ![Travis](https://img.shields.io/travis/nybatista/spynejs.svg?style=flat-square)
-[![Codecov](https://codecov.io/github/nybatista/spynejs/coverage.svg?style=flat-square)]
-(https://codecov.io/github/nybatista/spynejs?style=flat-square)
 
 
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square)](https://travis-ci.org/nybatista/spynejs)
