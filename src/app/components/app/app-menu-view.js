@@ -33,9 +33,9 @@ export class AppMenuView extends ViewStream {
     }
 
 	afterRender() {
-	   // this.addChannel('DOM');
+	   // this.addChannel('WINDOW');
 
-	 /*  this.getChannel('DOM')
+	 /*  this.getChannel('WINDOW')
             .subscribe((p)=>{
                 console.log(' event is ',p);
         });*/

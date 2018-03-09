@@ -95,7 +95,7 @@ export class PagesHolderView extends ViewStream {
 		return [
             ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent'],
             ["CHANNEL_UI.*", 'onUIEvent'],
-            ["CHANNEL_DOM.*", 'onDomChannel']
+            ["CHANNEL_WINDOW.*", 'onDomChannel']
         ];
 	}
 
@@ -118,7 +118,7 @@ export class PagesHolderView extends ViewStream {
 
     }
     onDomChannel(e){
-	    console.log("CHANNEL DOM ",this.isLocalEvent(e));
+	    console.log("CHANNEL WINDOW ",this.isLocalEvent(e));
     }
 
 	onRouteDeepLink(e){
@@ -145,7 +145,7 @@ export class PagesHolderView extends ViewStream {
     afterRender() {
         this.addChannel('ROUTE');
         this.addChannel("UI");
-        this.addChannel("DOM");
+        this.addChannel("WINDOW");
       /*  this.getChannel('UI')
             .subscribe(p=>console.log('ui payload ',p));*/
 	}

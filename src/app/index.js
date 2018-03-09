@@ -10,7 +10,7 @@ const spyneConfig = {
 
     channels: {
 
-        DOM: {
+        WINDOW: {
             mediqQueries: {
                 "test" : "(max-width: 500px)",
                 "newTest" : "(max-width: 800px)"
