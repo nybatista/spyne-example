@@ -4,7 +4,6 @@ import {ViewStream} from 'spynejs';
 import {PhotogsContainerView} from '../photographers-component/photogs-container-view';
 import {ImageContainerView} from '../images-component/image-container-view';
 import {PageEmptyView} from './page-empty-view';
-import {ViewStream} from 'spynejs';
 
 export class PageView extends ViewStream {
 

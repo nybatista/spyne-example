@@ -1,9 +1,12 @@
 
+
+
 import {AppView} from "./components/app/app-view";
 import {SpyneApp, ViewStream, ChannelsBaseData} from 'spynejs';
 import {ChannelData500px} from './channels/channel-data-500px';
 
 const css = require("./../scss/main.scss");
+
 
 
 const spyneConfig = {
@@ -18,7 +21,7 @@ const spyneConfig = {
         },
 
         ROUTE: {
-            type: 'slash', /* "slash", "query" */
+            type: 'slash',
             isHash: false,
             isHidden: false,
             routes: {
@@ -85,3 +88,4 @@ const Rx = require('rxjs');
 const R = require("ramda");
 window.R = R;
 window.Rx = Rx;
+

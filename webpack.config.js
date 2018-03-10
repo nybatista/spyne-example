@@ -9,10 +9,7 @@ module.exports = env => {
 
     const SitePath = String(path.resolve(__dirname, 'dist')).toLowerCase();
     const ExtractTextPlugin = require("extract-text-webpack-plugin");
-    const extractSass = new ExtractTextPlugin({
-        filename: "static/css/main.css",
-        disable: env === "development"
-    });
+    const extractSass = new ExtractTextPlugin("./dist/static/css/main.css");
     const htmlPlugin = new HtmlWebpackPlugin({
         title: 'spynejs-example',
         template: './src/index.html.ejs'
@@ -73,9 +70,11 @@ module.exports = env => {
 
     }
 
-    const staticPathPrefix = env === "development" ? "../../" : "//creativeholder.com/pipsisland/wysiwyg-wip/";
-    const outputPublicPath = env === "development" ? '' : './';
-    console.log("ENVIROMENT IS --> ", env,  staticPathPrefix, 'outputPath ',outputPublicPath);
+    //const staticPathPrefix = env === "development" ? "../../" : "//creativeholder.com/pipsisland/wysiwyg-wip/";
+    //const outputPublicPath = env === "development" ? '' : './';
+    const staticPathPrefix =  "../../" ;
+    const outputPublicPath =  '' ;
+   // console.log("ENVIROMENT IS --> ", env,  staticPathPrefix, 'outputPath ',outputPublicPath);
     const PATHS = {
         dist: path.resolve(__dirname, 'dist'),
         src: path.resolve(__dirname, 'src'),
@@ -94,7 +93,7 @@ module.exports = env => {
 
         devServer: {
             contentBase: path.join(__dirname, "src"),
-            port: 8080
+            port: 8060
         },
 
         devtool: 'inline-source-map',
@@ -155,26 +154,9 @@ module.exports = env => {
 
                 {
                     test: /\.scss$/,
-                    use: extractSass.extract({
-                        use: [
-                            {
-                                loader: 'css-loader', options: {
-                                    sourceMap: true
-                                }
-                            },
-                            {loader: 'resolve-url-loader'},
-                            {
-                                loader: 'sass-loader', options: {
-                                    sourceMap: true
-                                }
-                            }],
-                        fallback: [
-                            {
-                                loader: "style-loader", options: {
-                                    publicPath: "../../css"
-                                }
-                            }
-                        ]
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: ['css-loader', 'sass-loader']
                     })
                 }
 
