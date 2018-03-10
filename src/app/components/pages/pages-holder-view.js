@@ -90,7 +90,7 @@ export class PagesHolderView extends ViewStream {
 
     }
 
-	addActionMethods() {
+	addActionListeners() {
 		// return nexted array(s)
 		return [
             ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent'],

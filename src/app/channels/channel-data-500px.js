@@ -23,7 +23,7 @@ export class ChannelData500px extends ChannelsBase {
 
     }
 
-    getRegisteredActionsArr() {
+    addRegisteredActions() {
         return [
             'CHANNEL_DATA_EVENT',
         ]

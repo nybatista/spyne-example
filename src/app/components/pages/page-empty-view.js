@@ -12,7 +12,7 @@ export class PageEmptyView extends ViewStream {
 
 	}
 
-	addActionMethods() {
+	addActionListeners() {
 		// return nexted array(s)
 		return [];
 	}

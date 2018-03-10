@@ -13,7 +13,7 @@ export class ImageContainerView extends ViewStream {
 
 	}
 
-	addActionMethods() {
+	addActionListeners() {
 		// return nexted array(s)
 		return [];
 	}

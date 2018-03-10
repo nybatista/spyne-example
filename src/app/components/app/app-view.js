@@ -9,7 +9,7 @@ export class AppView extends ViewStream {
         super(props);
     }
 
-    addActionMethods() {
+    addActionListeners() {
         return [
         ];
 

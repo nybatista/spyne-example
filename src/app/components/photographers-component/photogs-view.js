@@ -13,7 +13,7 @@ export class PhotogsView extends ViewStream {
 
 	}
 
-	addActionMethods() {
+	addActionListeners() {
 		// return nexted array(s)
 		return [];
 	}

@@ -12,7 +12,7 @@ export class AppMenuView extends ViewStream {
 
 	}
 
-	addActionMethods() {
+	addActionListeners() {
 		// return nexted array(s)
 		return [
 		    ['SCROLL_EVENT', 'onScrollEvent']

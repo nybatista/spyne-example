@@ -10,7 +10,7 @@ export class HTMLView extends ViewStream {
 
 	}
 
-	addActionMethods() {
+	addActionListeners() {
 		// return nexted array(s)
 		return [];
 	}
