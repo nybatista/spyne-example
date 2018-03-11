@@ -93,7 +93,7 @@ module.exports = env => {
 
         devServer: {
             contentBase: path.join(__dirname, "src"),
-            port: 8060
+            port: 8080
         },
 
         devtool: 'inline-source-map',

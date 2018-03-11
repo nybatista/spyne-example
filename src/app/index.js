@@ -28,7 +28,7 @@ const spyneConfig = {
                 'route': {
                     'keyword': 'pageId',
                     'home': '',
-                    'page-one': {
+                    'images': {
                         'route': {
                             'keyword': 'imageNum',
                             'route': {
@@ -36,7 +36,7 @@ const spyneConfig = {
                             },
                         },
                     },
-                    'page-two': {
+                    'photographers': {
                         'route': {
                             'keyword': 'photogNum'
                         },

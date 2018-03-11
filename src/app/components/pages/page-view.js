@@ -17,12 +17,9 @@ export class PageView extends ViewStream {
 	getPageType(str){
         let type = PageEmptyView;
 	    const types = {
-	        "empty" : PageEmptyView,
-            "images" : ImageContainerView,
-            "photogs" : PhotogsContainerView,
-            "page-two" : PhotogsContainerView,
-            "page-one" : ImageContainerView,
-            "/" : PageEmptyView
+	        "home" : PageEmptyView,
+            "gallery" : ImageContainerView,
+            "photographers" : PhotogsContainerView,
         };
 
         return types[str] || type;
@@ -64,10 +61,11 @@ export class PageView extends ViewStream {
 
 
     afterRender() {
+	    console.log("page view route info ",this.props.routeInfo);
         const routeData = this.props.routeInfo;
-        const isPageId = routeData !== undefined && routeData.data !== undefined && routeData.data.pageId !== undefined;
-        const val = isPageId  === true ? routeData.data.pageId.split('/')[0] : this.getLocationVal();
-        const classType = this.getPageType(val);
+        const pageId = routeData.keywords.pageId;// !== undefined && routeData.data !== undefined && routeData.data.pageId !== undefined;
+       // const val = isPageId  === true ? routeData.data.pageId.split('/')[0] : this.getLocationVal();
+        const classType = this.getPageType(pageId);
         this.appendView(new classType());
         this.addChannel('ROUTE');
 

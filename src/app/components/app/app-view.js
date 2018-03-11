@@ -46,13 +46,12 @@ export class AppView extends ViewStream {
         this.getChannel('WINDOW')
             .subscribe((p)=>{
                 console.log('window event 1 ',p);
-        })
+        });
 
         this.getChannel("ChannelData500px")
             .subscribe((p)=>{
                 console.log('data ',p);
-
-        })
+        });
 
     }
 

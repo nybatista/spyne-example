@@ -19,7 +19,9 @@ export class ImagesView extends ViewStream {
     addActionListeners() {
         // return nexted array(s)
         return [
+
             ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent']
+
         ];
     }
 
@@ -30,12 +32,13 @@ export class ImagesView extends ViewStream {
         ];
 	}
 
-    onRouteChangeEvent(e){
+    onRouteChangeEvent(item){
        // console.log("IMAGE: ",e.data.imageNum,this.props.data.indexNum,e.data.imageNum*1 === this.props.data.indexNum );
+        //console.log('item route in images view is ',item);
 
-        if (e.data.imageNum*1 === this.props.data.indexNum){
+       /* if (e.data.imageNum*1 === this.props.data.indexNum){
              this.onAnimate(e);
-        }
+        }*/
     }
 
 	onAnimate(e){
@@ -71,26 +74,50 @@ export class ImagesView extends ViewStream {
 
 	afterRender() {
 
-	    this.addChannel('ROUTE');
+        let addRoute = ()=>{
+            this.addChannel('ROUTE');
 
-	    let img = this.props.el$.query('img').el;
-	    this.hideOverflow(false);
-
-	    const onLoad = (e)=>{
-	      //console.log('img loaded ',e);
-	      img.classList.add('reveal');
-	      this.props.el$.query('aside').el.remove();
-	      img.onload = ()=>{};
-	      img = undefined;
         };
 
+       // window.setTimeout(addRoute, 100);
+
+       // addRoute();
+
+        let addImg = ()=>{
+            let img = this.props.el$.query('img').el;
+
+           // console.log('img ',img);
+
+            this.hideOverflow(false);
+
+            const onLoad = (e)=>{
+                //console.log('img loaded ',e);
+                img.classList.add('reveal');
+                this.props.el$.query('aside').el.remove();
+                img.onload = ()=>{};
+                img = undefined;
+            };
+
+            img.onload = onLoad;
+
+        };
+
+        addImg();
+
+        addRoute();
+
+
+
+/*
+
+        */
 
 	  /*  this.getChannel('UI')
             .filter(p => p.data.el === this.props.el)
             .subscribe(this.onClick.bind(this));
 */
        // img.addEventListener('onload', onLoad);
-        img.onload = onLoad;
+       //img.onload = onLoad;
 
 
 	}
