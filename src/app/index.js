@@ -1,6 +1,3 @@
-
-
-
 import {AppView} from "./components/app/app-view";
 import {SpyneApp, ViewStream, ChannelsBaseData} from 'spynejs';
 import {ChannelData500px} from './channels/channel-data-500px';
@@ -15,8 +12,8 @@ const spyneConfig = {
 
         WINDOW: {
             mediqQueries: {
-                "test" : "(max-width: 500px)",
-                "newTest" : "(max-width: 800px)"
+              /*  "test" : "(max-width: 500px)",
+                "newTest" : "(max-width: 800px)"*/
             }
         },
 

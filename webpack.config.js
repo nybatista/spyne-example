@@ -11,7 +11,7 @@ module.exports = env => {
     const ExtractTextPlugin = require("extract-text-webpack-plugin");
     const extractSass = new ExtractTextPlugin("./dist/static/css/main.css");
     const htmlPlugin = new HtmlWebpackPlugin({
-        title: 'spynejs-example',
+        title: 'spynejs-example test',
         template: './src/index.html.ejs'
     });
 
@@ -93,6 +93,7 @@ module.exports = env => {
 
         devServer: {
             contentBase: path.join(__dirname, "src"),
+            host: "10.0.1.10",
             port: 8080
         },
 
@@ -102,7 +103,22 @@ module.exports = env => {
             rules: [
 
                 {
-                    test: /\.js$/,
+                    test: /(\.js)$/,
+                    loader: 'babel-loader',
+                    options: {
+                        "babelrc" : false,
+                        "presets": [
+                            ["@babel/preset-env", {
+                                "targets": {
+                                    "ie" : 10,
+                                    "browsers": ["last 2 versions"]
+
+                                },
+                                "modules": false,
+                                "loose": true
+                            }]
+                        ]
+                    },
                     exclude: /(node_modules)/
                 },
 
