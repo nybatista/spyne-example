@@ -78,7 +78,6 @@ export class ImagesView extends ViewStream {
             this.addChannel('ROUTE');
 
         };
-
        // window.setTimeout(addRoute, 100);
 
        // addRoute();
@@ -91,11 +90,15 @@ export class ImagesView extends ViewStream {
             this.hideOverflow(false);
 
             const onLoad = (e)=>{
-                //console.log('img loaded ',e);
-                img.classList.add('reveal');
-                this.props.el$.query('aside').el.remove();
-                img.onload = ()=>{};
-                img = undefined;
+                if (this!==undefined && this.props!==undefined) {
+                    img.classList.add('reveal');
+                    this.props.el$.query('aside').el.remove();
+                    img.onload = () => {};
+                    img = undefined;
+                } else {
+                    img.onload = () => {};
+                    img = undefined;
+                }
             };
 
             img.onload = onLoad;

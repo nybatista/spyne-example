@@ -33,7 +33,11 @@ export class ImageContainerView extends ViewStream {
 	        this.appendView(new ImagesView({data}));
         };
 
-	    this.photosData.forEach(loadImg);
+	   this.photosData.forEach(loadImg);
+    }
+
+    afterRender2(){
+
     }
 
 	afterRender() {

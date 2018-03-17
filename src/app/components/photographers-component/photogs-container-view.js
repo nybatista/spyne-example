@@ -24,9 +24,9 @@ export class PhotogsContainerView extends ViewStream {
 		return [];
 	}
 
-	loadImages(p){
-	    this.data = p.photos;
-
+	loadImages(item){
+	    this.props.data = R.prop('channelPayload', item);
+        console.log('photog data ',item,this.props.data);
 	    const addNewPhotog = (data)=>{
 	       // console.log('user is ',data);
 	        this.appendView(new PhotogsView({data}));
@@ -38,7 +38,7 @@ export class PhotogsContainerView extends ViewStream {
                 return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos;
             });
         }
-        this.userData = this.data.map(returnUser);
+        this.userData = this.props.data.map(returnUser);
         this.userData = removeDuplicates(this.userData, 'id');
 
         this.userData.forEach(addNewPhotog);

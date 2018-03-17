@@ -13,8 +13,8 @@ const spyneConfig = {
 
         WINDOW: {
             mediqQueries: {
-              /*  "test" : "(max-width: 500px)",
-                "newTest" : "(max-width: 800px)"*/
+                "test" : "screen and (max-width:500px)",
+                "newTest" : "screen and (max-width:800px)"
             }
         },
 

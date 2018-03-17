@@ -9,6 +9,7 @@ export class PageView extends ViewStream {
 
 	constructor(props = {}) {
         props['class']='page-view';
+        props['pageId']=props.routeInfo.keywords.pageId;
 		super(props);
         this.disposeReady = false;
 	}
@@ -38,12 +39,16 @@ export class PageView extends ViewStream {
 		return [];
 	}
 
-    onRouteChangeEvent(e){
+    onRouteChangeEvent(item){
+
+	    const routePageId = R.path(['channelPayload', 'keywords', 'pageId'], item);
+	    const isNotCurrentPageId = this.props.pageId === routePageId;
 
         //console.log(' route event in page view is ',e,this);
-        if (this.disposeReady === true && e.data.hasOwnProperty('imageNum')===false) {
+        if (isNotCurrentPageId === false) {
             // super.onDispose();
-            this.onDispose(e)
+            console.log('dispose is ready',item, {routePageId, isNotCurrentPageId});
+            this.onDispose()
         }
         this.disposeReady = true;
 
@@ -65,7 +70,7 @@ export class PageView extends ViewStream {
         const routeData = this.props.routeInfo;
         const pageId = routeData.keywords.pageId;// !== undefined && routeData.data !== undefined && routeData.data.pageId !== undefined;
        // const val = isPageId  === true ? routeData.data.pageId.split('/')[0] : this.getLocationVal();
-        const classType = this.getPageType(pageId);
+        const classType = this.getPageType(this.props.pageId);
         this.appendView(new classType());
         this.addChannel('ROUTE');
 
