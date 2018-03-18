@@ -28,6 +28,12 @@
             height: 580px;
             transition: all .3s  ease-in-out;
 
+            &.fadeout-image {
+                opacity:0;
+                transition: all .5s ease-out;
+                //height: 20px;
+            }
+
             &:hover {
                // box-shadow: 0 7px 8px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 
