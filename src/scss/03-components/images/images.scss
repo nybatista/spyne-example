@@ -4,10 +4,11 @@
         width: 100vw;
         //background: hsl(0,0,80%);
         max-width: 90vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+
+       // flex-direction: column;
+       // justify-content: center;
+       // align-items: center;
         margin:40px 0 0 0 ;
         padding: 20px 0;
        // background: blue;

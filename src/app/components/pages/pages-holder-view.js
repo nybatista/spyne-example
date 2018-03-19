@@ -20,7 +20,7 @@ export class PagesHolderView extends ViewStream {
 	addActionListeners() {
 		// return nexted array(s)
 		return [
-            ['CHANNEL_ROUTE_CHANGE_EVENT', 'onRouteChangeEvent'],
+            ['CHANNEL_ROUTE.*', 'onRouteChangeEvent'],
             ["CHANNEL_UI.*", 'onUIEvent'],
             ["CHANNEL_WINDOW.*", 'onDomChannel']
         ];

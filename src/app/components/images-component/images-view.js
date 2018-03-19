@@ -10,7 +10,7 @@ export class ImagesView extends ViewStream {
 	constructor(props = {}) {
         props.tagName='article';
         props.template = require("./templates/images-view.tmpl.html");
-        props['animateOutClass'] = 'fadeout-image';
+       // props['animateOutClass'] = 'fadeout-image';
 
 		super(props);
 
