@@ -2,7 +2,7 @@
 import {PhotogsView} from './photogs-view';
 
 const R = require('ramda');
-import {ViewStream} from 'spynejs';
+import {ViewStream} from 'spyne';
 
 export class PhotogsContainerView extends ViewStream {
 

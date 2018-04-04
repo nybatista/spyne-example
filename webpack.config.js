@@ -9,7 +9,15 @@ module.exports = env => {
 
     const SitePath = String(path.resolve(__dirname, 'dist')).toLowerCase();
     const ExtractTextPlugin = require("extract-text-webpack-plugin");
-    const extractSass = new ExtractTextPlugin("./dist/static/css/main.css");
+    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+
+
+    const extractSass = new ExtractTextPlugin({
+        filename: "static/css/"+"[name].css",
+        disable: process.env.NODE_ENV === "development"
+    });
+
     const htmlPlugin = new HtmlWebpackPlugin({
         title: 'spynejs-example test',
         template: './src/index.html.ejs'
@@ -20,6 +28,7 @@ module.exports = env => {
     if (env === "production"){
         //const uglifier = new UglifyJsPlugin({minimize: true});
         allPlugins.push(new UglifyJsPlugin());
+        allPlugins.push( new BundleAnalyzerPlugin());
         //https://creativeholder.com/dist/spyne/spyne.min.js
        /* allPlugins.push(
             new WebpackCdnPlugin({
@@ -97,7 +106,7 @@ module.exports = env => {
             port: 8080
         },
 
-        devtool: 'inline-source-map',
+        devtool: '',
 
         module: {
             rules: [
@@ -170,9 +179,14 @@ module.exports = env => {
 
                 {
                     test: /\.scss$/,
-                    use: ExtractTextPlugin.extract({
-                        fallback: 'style-loader',
-                        use: ['css-loader', 'sass-loader']
+                    use: extractSass.extract({
+                        use: [{
+                            loader: "css-loader"
+                        }, {
+                            loader: "sass-loader"
+                        }],
+                        // use style-loader in development
+                        fallback: "style-loader"
                     })
                 }
 
@@ -181,11 +195,21 @@ module.exports = env => {
         resolve: {
             extensions: ['.js']
         },
-        externals: {
-          "R": "ramda",
-          "Rx": "rxjs"
 
-        },
+       /* externals: {
+            rxjs: {
+                commonjs: 'rxjs',
+                commonjs2: 'rxjs',
+                amd: 'rxjs',
+                root: 'Rx'
+            },
+            ramda : {
+                commonjs: 'ramda',
+                commonjs2: 'ramda',
+                amd: 'ramda',
+                root: 'R'
+            }
+        },*/
 
         plugins: allPlugins
 

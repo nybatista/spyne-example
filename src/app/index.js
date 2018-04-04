@@ -1,5 +1,8 @@
+console.log('loaded');
+
+
 import {AppView} from "./components/app/app-view";
-import {SpyneApp, ViewStream, ChannelsBaseData} from 'spynejs';
+import {SpyneApp, ViewStream, ChannelsBaseData} from 'spyne';
 //import {ChannelData500px} from './channels/channel-data-500px';
 require('es6-promise').polyfill();
 
@@ -100,4 +103,5 @@ const onPolysLoaded = ()=>{
     }
 };
 onPolysLoaded();
+
 

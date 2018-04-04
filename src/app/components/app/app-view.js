@@ -1,4 +1,4 @@
-import {ViewStream} from '../../../../../spynejs/lib/spyne';
+import {ViewStream} from '../../../../../spyne/lib/spyne';
 import {PagesHolderView} from '../pages/pages-holder-view';
 import {AppMenuView} from './app-menu-view';
 
