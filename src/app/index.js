@@ -1,5 +1,8 @@
 console.log('loaded');
 
+import * as R from 'ramda';
+import * as Rx from 'rxjs';
+
 
 import {AppView} from "./components/app/app-view";
 import {SpyneApp, ViewStream, ChannelsBaseData} from 'spyne';
@@ -103,5 +106,6 @@ const onPolysLoaded = ()=>{
     }
 };
 onPolysLoaded();
+
 
 

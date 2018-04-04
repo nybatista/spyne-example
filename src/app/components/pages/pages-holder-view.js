@@ -1,6 +1,6 @@
 // import Rx from "rxjs";
 const R = require('ramda');
-import {ViewStream} from 'spyne';
+import {ViewStream} from '../../../../../spyne/lib/spyne';
 import {ImageContainerView} from '../images-component/image-container-view';
 import {PhotogsContainerView} from '../photographers-component/photogs-container-view';
 import {PageView} from './page-view';

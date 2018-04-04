@@ -2,7 +2,9 @@
   "name": "spyne-example",
   "version": "0.2.0",
   "description": "spyne example",
-  "main": "js/main.js",
+  "sideEffects": false,
+  "main": "dist/static/js/index.js",
+  "module": "src/app/index.js",
   "directories": {
     "doc": "doc"
   },
@@ -12,7 +14,7 @@
     "dev": "webpack-dev-server --inline  --mode development --progress --colors --watch  ",
     "buildFlag": "webpack --bail --env dist -p",
     "build": "webpack --env production",
-    "build2": "webpack --mode production --optimize-minimize   --env build --display-modules  ",
+    "build2": "webpack --mode production    --env build --display-modules  ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,7 +27,7 @@
     "gsap": "^1.20.3",
     "ramda": "^0.25.0",
     "rxjs": "^5.5.6",
-    "spynejs": "^0.7.9",
+    "spyne": "^0.7.16",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
@@ -54,7 +56,7 @@
     "file-loader": "^1.1.11",
     "hammerjs": "^2.0.8",
     "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.0.6",
+    "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^3.4.2",
     "jasmine": "^2.8.0",
     "jasmine-core": "^2.8.0",
@@ -80,7 +82,7 @@
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.1.4",
     "url-loader": "^1.0.1",
-    "webpack": "^4.0.1",
+    "webpack": "^4.4.1",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cdn-plugin": "^1.7.1",
     "webpack-cli": "^2.0.11",

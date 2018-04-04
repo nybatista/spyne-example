@@ -14,7 +14,7 @@ module.exports = env => {
 
 
     const extractSass = new ExtractTextPlugin({
-        filename: "static/css/"+"[name].css",
+        filename: "static/css/main.css",
         disable: process.env.NODE_ENV === "development"
     });
 
@@ -25,11 +25,17 @@ module.exports = env => {
 
     const allPlugins = [htmlPlugin,extractSass];
 
+
+
+
     if (env === "production"){
         //const uglifier = new UglifyJsPlugin({minimize: true});
-        allPlugins.push(new UglifyJsPlugin());
-        allPlugins.push( new BundleAnalyzerPlugin());
+      //  allPlugins.push(new UglifyJsPlugin());
+       // allPlugins.push( new BundleAnalyzerPlugin());
         //https://creativeholder.com/dist/spyne/spyne.min.js
+
+
+
        /* allPlugins.push(
             new WebpackCdnPlugin({
                 prod: true,
@@ -92,13 +98,41 @@ module.exports = env => {
     };
 
     return {
-        entry: "./src/app/index.js",
+
+        entry: {
+
+            index: "./src/app/index.js"
+        },
+
+
+
+       /* entry:{
+
+            index: "./src/app/index.js",
+            vendor: ['rxjs','ramda','spyne','gsap']
+
+
+
+        },*/
 
         output: {
             path: path.resolve(__dirname, 'dist'),
             publicPath: outputPublicPath,
-            filename: 'static/js/index.js'
+            filename: 'static/js/[name].js'
         },
+
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    commons: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: 'vendor',
+                        chunks: 'all'
+                    }
+                }
+            }
+        },
+
 
         devServer: {
             contentBase: path.join(__dirname, "src"),
