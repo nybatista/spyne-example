@@ -14,16 +14,25 @@ export class PageEmptyView extends ViewStream {
 
 	addActionListeners() {
 		// return nexted array(s)
-		return [];
+		return [
+		    ["CHANNEL_UI_CLICK_EVENT", "onClicked"]
+        ];
 	}
+
+	onClicked(item){
+	    console.log('item is clicked ');
+    }
 
 	broadcastEvents() {
 		// return nexted array(s)
-		return [];
+		return [
+		    ['button#testbtn', 'click']
+
+        ];
 	}
 
 	afterRender() {
-
+        this.addChannel("UI");
 	}
 
 }
