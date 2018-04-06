@@ -105,7 +105,7 @@ const onPolysLoaded = ()=>{
         window.setTimeout(onPolysLoaded, 100);
     }
 };
-onPolysLoaded();
+//onPolysLoaded();
 
-
+window.setTimeout(onPolysLoaded, 4000);
 

@@ -1,6 +1,6 @@
 // import Rx from "rxjs";
 // const R = require('ramda');
-import {ViewStream} from '../../../../../spyne/lib/spyne';
+import {ViewStream} from 'spyne';
 
 export class PageEmptyView extends ViewStream {
 

@@ -96,11 +96,12 @@ body {
     #example-app {
         position: relative;
         width: 100vw;
+        height:100vh;
         background: slate;
         display: flex;
         // flex-direction: column;
         justify-content: center;
-       // background: green;
+        background: #333;
         #stage {
             display:none;
             position: relative;
@@ -108,7 +109,7 @@ body {
            // display: flex;
             flex-direction: column;
             justify-content: center;
-            //background: orange;
+           // background: orange;
 
             .panel {
                 color: darkblue;

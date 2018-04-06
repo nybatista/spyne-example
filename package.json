@@ -14,7 +14,8 @@
     "dev": "webpack-dev-server --inline  --mode development --progress --colors --watch  ",
     "buildFlag": "webpack --bail --env dist -p",
     "build": "webpack --env production",
-    "build2": "webpack --mode production    --env build --display-modules  ",
+      "stats": "webpack --profile --json --optimize-minimize  --mode production --env build  > stats.json",
+      "build2": "webpack --mode production    --env build --display-modules  ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

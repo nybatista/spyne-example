@@ -230,20 +230,10 @@ module.exports = env => {
             extensions: ['.js']
         },
 
-       /* externals: {
-            rxjs: {
-                commonjs: 'rxjs',
-                commonjs2: 'rxjs',
-                amd: 'rxjs',
-                root: 'Rx'
-            },
-            ramda : {
-                commonjs: 'ramda',
-                commonjs2: 'ramda',
-                amd: 'ramda',
-                root: 'R'
-            }
-        },*/
+        externals: {
+          Rx: 'rxjs',
+            R: 'ramda'
+        },
 
         plugins: allPlugins
 

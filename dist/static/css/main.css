@@ -722,7 +722,7 @@ template {
       display: flex;
       width: 100vw;
       height: 100vh;
-      background: darkred;
+      background: #333;
       justify-content: center;
       align-items: center; }
 
@@ -789,9 +789,11 @@ body {
   body #example-app {
     position: relative;
     width: 100vw;
+    height: 100vh;
     background: slate;
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    background: #333; }
     body #example-app #stage {
       display: none;
       position: relative;
