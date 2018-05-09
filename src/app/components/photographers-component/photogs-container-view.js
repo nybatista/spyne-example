@@ -28,7 +28,7 @@ export class PhotogsContainerView extends ViewStream {
 	    this.props.data = R.prop('channelPayload', item);
         console.log('photog data ',item,this.props.data);
 	    const addNewPhotog = (data)=>{
-	       // console.log('user is ',data);
+	        console.log('user is ',data);
 	        this.appendView(new PhotogsView({data}));
         };
 	    const returnUser = d => d.user;

@@ -66,20 +66,27 @@ window.onStartApp = function() {
     console.log('polys are loaded');
 
     const spyneApp = new SpyneApp(spyneConfig);
+    const reHttps = /^(https:)(.*)$/;
     const mapFn = (data) => {
         const updates = (img) => {
             img.description = img.description === null
-                ? img.name
+                ? 'untitled'
                 : img.description;
             img['perpsectiveNum'] = String((img.height / img.width) * 100 +
                 "%");
+            img['image_url'] = img.urls.full;
+            img.user['userpic_url'] = String(img.user.profile_image.large).replace(reHttps, '$2');
+            console.log('img is ',img.userpic_url);
             return img;
         };
-        data.photos = R.map(updates, data.photos);
+        data.photos = R.map(updates, data.results);
         return data.photos;
     };
     const pixData = {
+        dataUrl: "https://api.unsplash.com/search/photos/?client_id=68f7ee84bd1d1bbcecf2692172b48c28704e2108c23d7d1d9fc7049a7ece12ae&page=1&query=landscape",
+/*
         dataUrl: "https://api.500px.com/v1/photos/search?term=10&exclude=people&consumer_key=XbScUOttPINmCIoKkeXhRmdBWCM5Nqf0LNZ9Siiv&image_size=5",
+*/
         name: 'ChannelData500px',
         map: mapFn
     };
