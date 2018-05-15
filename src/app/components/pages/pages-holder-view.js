@@ -1,4 +1,6 @@
 // import Rx from "rxjs";
+import {PageControl} from './page-control';
+
 const R = require('ramda');
 import {ViewStream} from 'spyne';
 import {ImageContainerView} from '../images-component/image-container-view';
@@ -68,6 +70,8 @@ export class PagesHolderView extends ViewStream {
 
 
     afterRender() {
+	    let pageControl = new PageControl();
+	    pageControl.appendToNull();
         this.addChannel('ROUTE');
         this.addChannel("UI");
         this.addChannel("WINDOW");
