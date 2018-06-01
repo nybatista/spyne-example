@@ -21,11 +21,14 @@ export class PhotogsView extends ViewStream {
 
 	broadcastEvents() {
 		// return nexted array(s)
-		return [];
+		return [
+		    ['dl', 'click']
+
+        ];
 	}
 
 	afterRender() {
-
+       // console.log('photogs view ',this.props.data);
 	}
 
 }

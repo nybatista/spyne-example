@@ -11,6 +11,7 @@ export class AppView extends ViewStream {
 
     addActionListeners() {
         return [
+            ['CHANNEL_ROUTE_*', 'onChannelRouteEvent']
         ];
 
     }
@@ -21,6 +22,10 @@ export class AppView extends ViewStream {
             ['.nav-btn', 'click'],
             ['.nav-btn-ui', 'click']
         ];
+    }
+
+    onChannelRouteEvent(item){
+        console.log('route event ',item);
     }
 
 
@@ -42,6 +47,7 @@ export class AppView extends ViewStream {
         this.appendView(new AppMenuView());
         this.appendView(new PagesHolderView());
         this.testSendPayload();
+        this.addChannel("ROUTE");
 
         this.getChannel('WINDOW')
             .subscribe((p)=>{

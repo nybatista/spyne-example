@@ -26,7 +26,7 @@ const spyneConfig = {
 
         ROUTE: {
             type: 'slash',
-            isHash: false,
+            isHash: true,
             isHidden: false,
             routes: {
                 'route': {

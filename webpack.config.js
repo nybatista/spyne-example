@@ -140,7 +140,7 @@ module.exports = env => {
             port: 8080
         },
 
-        devtool: '',
+        devtool: 'inline-source-map',
 
         module: {
             rules: [

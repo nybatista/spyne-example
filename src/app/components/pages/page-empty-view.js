@@ -21,6 +21,7 @@ export class PageEmptyView extends ViewStream {
 
 	onClicked(item){
 	    console.log('item is clicked ');
+	    this.props.el$.query('article').setActiveItem('article', 'test1');
     }
 
 	broadcastEvents() {
