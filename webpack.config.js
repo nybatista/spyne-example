@@ -11,6 +11,15 @@ module.exports = env => {
     const ExtractTextPlugin = require("extract-text-webpack-plugin");
     const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+    let devToolsVal = 'inline-source-map';
+    if (env === "build"){
+
+        //const uglifier = new UglifyJsPlugin({minimize: true});
+        //  allPlugins.push(new UglifyJsPlugin());
+        // allPlugins.push( new BundleAnalyzerPlugin());
+        //https://creativeholder.com/dist/spyne/spyne.min.js
+        devToolsVal = '';
+    }
 
 
     const extractSass = new ExtractTextPlugin({
@@ -140,12 +149,12 @@ module.exports = env => {
             port: 8080
         },
 
-        devtool: 'inline-source-map',
+        devtool: devToolsVal,
 
         module: {
             rules: [
 
-                {
+                /*{
                     test: /(\.js)$/,
                     loader: 'babel-loader',
                     options: {
@@ -164,7 +173,7 @@ module.exports = env => {
                     },
                     exclude: /(node_modules)/
                 },
-
+*/
                 {
                     test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.ttf$|\.wav$|\.mp3$/,
                     use: {
