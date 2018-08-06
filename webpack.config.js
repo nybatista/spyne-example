@@ -152,9 +152,7 @@ module.exports = env => {
         devtool: devToolsVal,
 
         module: {
-            rules: [
-
-                /*{
+            rules: [{
                     test: /(\.js)$/,
                     loader: 'babel-loader',
                     options: {
@@ -171,9 +169,11 @@ module.exports = env => {
                             }]
                         ]
                     },
+/*
                     exclude: /(node_modules)/
-                },
 */
+                },
+
                 {
                     test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.ttf$|\.wav$|\.mp3$/,
                     use: {
