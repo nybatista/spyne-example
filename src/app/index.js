@@ -1,7 +1,7 @@
 console.log('loaded');
 
 import * as R from 'ramda';
-import * as Rx from 'rxjs';
+//import * as Rx from 'rxjs';
 
 
 import {AppView} from "./components/app/app-view";
@@ -63,7 +63,6 @@ const spyneConfig = {
 
 window.onStartApp = function() {
 
-    console.log('polys are loaded');
 
     const spyneApp = new SpyneApp(spyneConfig);
     const reHttps = /^(https:)(.*)$/;
@@ -98,10 +97,11 @@ window.onStartApp = function() {
         el: document.getElementById('example-app')
     });
 
-    const Rx = require('rxjs');
+    //const Rx = require('rxjs');
     const R = require("ramda");
     window.R = R;
-    window.Rx = Rx;
+    //window.Rx = Rx;
+    console.log('Spyne: ',Spyne.VERSION);
 
 }
 
