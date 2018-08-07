@@ -169,9 +169,9 @@ module.exports = env => {
                             }]
                         ]
                     },
-/*
+
                     exclude: /(node_modules)/
-*/
+
                 },
 
                 {
