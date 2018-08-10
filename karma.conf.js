@@ -1,5 +1,9 @@
 // Karma configuration
 // Generated on Mon Dec 25 2017 11:08:47 GMT-0500 (EST)
+const webpackEnv = {test:true};
+//const webpackConfig = require("./webpack.config")(webpackEnv);
+const webpackConfig = require("./webpack.config");
+webpackConfig.mode = 'development';
 
 module.exports = function(config) {
   config.set({
@@ -10,7 +14,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine','chai'],
+    frameworks: ['mocha','chai'],
 
 
     // list of files / patterns to load in the browser
@@ -27,7 +31,12 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        './src/tests/*.test.js' : ['webpack', 'coverage']
     },
+
+      webpack: webpackConfig,
+
+      webpackMiddleware: {noInfo: true},
 
 
     // test results reporter to use
