@@ -4,12 +4,14 @@ module.exports = env => {
     const webpack = require('webpack');
     const HtmlWebpackPlugin = require('html-webpack-plugin');
     const WebpackCdnPlugin = require('webpack-cdn-plugin');
-
+    const PACKAGE = require('./package.json');
     const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
     const SitePath = String(path.resolve(__dirname, 'dist')).toLowerCase();
     const ExtractTextPlugin = require("extract-text-webpack-plugin");
     const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+    const ip = require('ip');
+    let localIpAddress = ip.address();
 
     let devToolsVal = 'inline-source-map';
     if (env === "build"){
@@ -32,7 +34,18 @@ module.exports = env => {
         template: './src/index.html.ejs'
     });
 
-    const allPlugins = [htmlPlugin,extractSass];
+    let ubuObj = {
+        UBU : JSON.stringify("THE UBU VAL"),
+        VERSION: JSON.stringify(PACKAGE.version)
+    };
+
+    const definePlugin = new webpack.DefinePlugin(ubuObj);
+    console.log("ADRESS: ",localIpAddress,ubuObj,PACKAGE);
+    const envPlugin =  new webpack.EnvironmentPlugin({
+        NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+        DEBUG: false
+    });;
+    const allPlugins = [htmlPlugin,extractSass,definePlugin];
 
 
 
@@ -145,7 +158,9 @@ module.exports = env => {
 
         devServer: {
             contentBase: path.join(__dirname, "src"),
-            host: "10.0.1.10",
+
+            host: localIpAddress,
+
             port: 8080
         },
 
