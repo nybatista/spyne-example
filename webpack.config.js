@@ -45,7 +45,7 @@ module.exports = env => {
         NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
         DEBUG: false
     });;
-    const allPlugins = [htmlPlugin,extractSass,definePlugin];
+    const allPlugins = [htmlPlugin,extractSass,definePlugin, new BundleAnalyzerPlugin()];
 
 
 
