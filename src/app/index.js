@@ -13,7 +13,7 @@ const css = require("./../scss/main.scss");
 
 
 window.theProcess = process;
-console.log("PROCESS ENV IS ",process.env,VERSION);
+//console.log("PROCESS ENV IS ",process.env,VERSION);
 const spyneConfig = {
 
     channels: {

@@ -14,14 +14,7 @@ module.exports = env => {
     let localIpAddress = ip.address();
 
     let devToolsVal = 'inline-source-map';
-    if (env === "build"){
 
-        //const uglifier = new UglifyJsPlugin({minimize: true});
-        //  allPlugins.push(new UglifyJsPlugin());
-        // allPlugins.push( new BundleAnalyzerPlugin());
-        //https://creativeholder.com/dist/spyne/spyne.min.js
-        devToolsVal = '';
-    }
 
 
     const extractSass = new ExtractTextPlugin({
@@ -45,7 +38,18 @@ module.exports = env => {
         NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
         DEBUG: false
     });;
-    const allPlugins = [htmlPlugin,extractSass,definePlugin, new BundleAnalyzerPlugin()];
+    const allPlugins = [htmlPlugin,extractSass,definePlugin];
+
+
+    if (env === "build"){
+
+        //const uglifier = new UglifyJsPlugin({minimize: true});
+        //  allPlugins.push(new UglifyJsPlugin());
+        // allPlugins.push( new BundleAnalyzerPlugin());
+        //https://creativeholder.com/dist/spyne/spyne.min.js
+        allPlugins.push(new BundleAnalyzerPlugin());
+        devToolsVal = '';
+    }
 
 
 
