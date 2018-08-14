@@ -4,6 +4,7 @@ import {ViewStream} from 'spyne';
 import {PhotogsContainerView} from '../photographers-component/photogs-container-view';
 import {ImageContainerView} from '../images-component/image-container-view';
 import {PageEmptyView} from './page-empty-view';
+const R = require('ramda');
 
 export class PageView extends ViewStream {
 

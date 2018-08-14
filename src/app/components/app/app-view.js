@@ -45,7 +45,6 @@ export class AppView extends ViewStream {
 
     afterRender(){
 
-        console.log("APP VIEW GLOBAL VALS ENV IS ",UBU);
 
         this.appendView(new AppMenuView());
         this.appendView(new PagesHolderView());

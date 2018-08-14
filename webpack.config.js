@@ -3,11 +3,7 @@ module.exports = env => {
     const path = require("path");
     const webpack = require('webpack');
     const HtmlWebpackPlugin = require('html-webpack-plugin');
-    const WebpackCdnPlugin = require('webpack-cdn-plugin');
     const PACKAGE = require('./package.json');
-    const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
-    const SitePath = String(path.resolve(__dirname, 'dist')).toLowerCase();
     const ExtractTextPlugin = require("extract-text-webpack-plugin");
     const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
     const ip = require('ip');
@@ -27,95 +23,19 @@ module.exports = env => {
         template: './src/index.html.ejs'
     });
 
-    let ubuObj = {
-        UBU : JSON.stringify("THE UBU VAL"),
-        VERSION: JSON.stringify(PACKAGE.version)
-    };
 
-    const definePlugin = new webpack.DefinePlugin(ubuObj);
-    console.log("ADRESS: ",localIpAddress,ubuObj,PACKAGE);
-    const envPlugin =  new webpack.EnvironmentPlugin({
-        NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
-        DEBUG: false
-    });;
-    const allPlugins = [htmlPlugin,extractSass,definePlugin];
+
+    const allPlugins = [htmlPlugin,extractSass];
 
 
     if (env === "build"){
-
-        //const uglifier = new UglifyJsPlugin({minimize: true});
-        //  allPlugins.push(new UglifyJsPlugin());
-        // allPlugins.push( new BundleAnalyzerPlugin());
-        //https://creativeholder.com/dist/spyne/spyne.min.js
         allPlugins.push(new BundleAnalyzerPlugin());
         devToolsVal = '';
     }
 
 
-
-
-    if (env === "production"){
-        //const uglifier = new UglifyJsPlugin({minimize: true});
-      //  allPlugins.push(new UglifyJsPlugin());
-       // allPlugins.push( new BundleAnalyzerPlugin());
-        //https://creativeholder.com/dist/spyne/spyne.min.js
-
-
-
-       /* allPlugins.push(
-            new WebpackCdnPlugin({
-                prod: true,
-                prodUrl: '//creativeholder.com/dist/spyne/spyne.min.js',
-                modules: [
-
-                    {
-                        name: 'spyne',
-                        var: 'spyne',
-                        prodUrl: "//spynejs.org/dist/spyne.min.js"
-                    }
-                ]
-            })
-
-        );
-
-
-        allPlugins.push(
-            new WebpackCdnPlugin({
-                prod: true,
-                prodUrl: '//cdnjs.cloudflare.com/ajax/libs/:name/:version/:path',
-                modules: [
-
-                    {
-                        name: 'rxjs',
-                        var: 'Rx',
-                        version: '5.5.6',
-                        path: 'Rx.min.js',
-                        prodUrl: '//cdnjs.cloudflare.com/ajax/libs/:name/:version/:path'
-
-                    },
-                    {
-                        name: 'ramda',
-                        var: 'R',
-                        version: '0.25.0',
-                        path: 'ramda.min.js',
-                        prodUrl: '//cdnjs.cloudflare.com/ajax/libs/:name/:version/:path'
-
-                    }
-                ]
-            })
-
-        );
-
-*/
-
-
-    }
-
-    //const staticPathPrefix = env === "development" ? "../../" : "//creativeholder.com/pipsisland/wysiwyg-wip/";
-    //const outputPublicPath = env === "development" ? '' : './';
     const staticPathPrefix =  "../../" ;
     const outputPublicPath =  '' ;
-   // console.log("ENVIROMENT IS --> ", env,  staticPathPrefix, 'outputPath ',outputPublicPath);
     const PATHS = {
         dist: path.resolve(__dirname, 'dist'),
         src: path.resolve(__dirname, 'src'),
@@ -131,18 +51,8 @@ module.exports = env => {
         },
 
 
-
-       /* entry:{
-
-            index: "./src/app/index.js",
-            vendor: ['rxjs','ramda','spyne','gsap']
-
-
-
-        },*/
-
         output: {
-            path: path.resolve(__dirname, 'dist'),
+            path: PATHS.dist,
             publicPath: outputPublicPath,
             filename: 'static/js/[name].js'
         },
@@ -161,10 +71,8 @@ module.exports = env => {
 
 
         devServer: {
-            contentBase: path.join(__dirname, "src"),
-
+            contentBase: PATHS.src,
             host: localIpAddress,
-
             port: 8080
         },
 
@@ -181,7 +89,6 @@ module.exports = env => {
                                 "targets": {
                                     "ie" : 10,
                                     "browsers": ["last 2 versions"]
-
                                 },
                                 "modules": false,
                                 "loose": true
@@ -201,16 +108,9 @@ module.exports = env => {
                         loader: 'file-loader',
                         options: {
                             publicPath:  staticPathPrefix,
-
-/*
-                            publicPath: "http://creativeholder.com/pipsisland/wysiwyg-wip/",
-*/
                             useRelativePath: false,
                             context: "dist/",
-
                             name: '[path][name].[ext]',
-
-
                         }
                     }
                 },
