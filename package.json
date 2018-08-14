@@ -25,7 +25,7 @@
   "author": "Frank Batista",
   "license": "ISC",
   "dependencies": {
-    "gsap": "^1.20.6",
+    "gsap": "^2.0.1",
     "ramda": "^0.25.0",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
