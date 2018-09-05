@@ -2,12 +2,16 @@ import {AppView} from "./components/app/app-view";
 import {SpyneApp, ViewStream, ChannelsBaseData} from 'spyne';
 import {ChannelVideo} from './channels/channel-video';
 import {ChannelData500px} from './channels/channel-data-500px';
+import {ChannelLocalStorage} from './channels/channel-localstorage';
+import {ChannelGateway} from './channels/channel-gateway';
+
 const R = require('ramda');
 
 const css = require("./../scss/main.scss");
 
 
 const spyneConfig = {
+    appName: "autoscroll",
 
     channels: {
 
@@ -93,7 +97,8 @@ window.onStartApp = function() {
 
     spyneApp.registerDataChannel(new ChannelData500px(pixData));
     spyneApp.registerDataChannel(new ChannelVideo());
-
+    spyneApp.registerChannel('CHANNEL_LOCALSTORAGE', new ChannelLocalStorage());
+    spyneApp.registerChannel('CHANNEL_GATEWAY', new ChannelGateway());
     const App = new AppView({
         el: document.getElementById('example-app')
     });

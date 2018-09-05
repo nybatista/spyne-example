@@ -27,7 +27,7 @@ export class ImageContainerView extends ViewStream {
 
 	syncScroll(id){
 	    let el = document.querySelector(id);
-        TweenMax.to(window, 2, {scrollTo:{y:el, offsetY:70,  autoKill: false,    ease:Power1.easeInOut}});
+        TweenMax.to(window, 1, {scrollTo:{y:el, offsetY:70,  autoKill: false,    ease:Power3.easeInOut}});
     }
 
 	onSyncScrollEvent(item){

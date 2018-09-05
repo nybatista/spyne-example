@@ -19,7 +19,7 @@ module.exports = env => {
     });
 
     const htmlPlugin = new HtmlWebpackPlugin({
-        title: 'spynejs-example test',
+        title: 'audio scroll test',
         template: './src/index.html.ejs'
     });
 

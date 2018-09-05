@@ -1,0 +1,133 @@
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn, .form-control{
+ // @include font-size(13px);
+  font-size:13px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+// ====================
+
+
+#gatekeeper{
+  position:fixed;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  top:0;
+  left:0;
+  opacity:0;
+  width:100%;
+  height:100%;
+  background: #00061A;
+ // opacity:0;
+  pointer-events: none;
+  .form-group, .btn {
+    opacity:0;
+  }
+
+  #pwd{
+    position:relative;
+    //background: orange;
+   // height: 200px;
+   // min-width:320px;
+    //background: darkgreen;
+    left: -.75rem;
+    top: -30px;
+    opacity:0;
+  }
+
+  &.show {
+    opacity:1;
+    pointer-events: all;
+    .form-group, .btn {
+      opacity:1;
+    }
+
+
+    #pwd{
+      opacity:1;
+      transition: opacity .5s ease .25s;
+    }
+
+   #error-msg{
+     width: 100%;
+     background: #cc0050a8;
+     /* width: 100%; */
+     border-radius:2px;
+     padding: 0px .75rem;
+     opacity:0;
+     //display: inline-block;
+
+     //line-height: 1.5;
+     //transition: all .125s ease;
+      //display:none;
+      margin: 0 0 4px 0;
+     height:30px;
+     pointer-events: none;
+     &.reveal {
+       transition: opacity .125s ease;
+       opacity: .95;
+        display: block;
+     }
+
+     p {
+     position: relative;
+       top:4px;
+     color: #fff;//#be5833;// orangered;
+    // line-height: 2.25;
+     font-size: 15px;
+       letter-spacing: .25px;
+     //opacity:1;
+     pointer-events: none;
+     transition: all .125s ease;
+
+      }
+    }
+
+  }
+
+  //  ====== FORM =======
+
+  .form-group {
+    margin-bottom: 1rem;
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: .375rem .75rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    }
+  }
+
+
+
+
+}
+

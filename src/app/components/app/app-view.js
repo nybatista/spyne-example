@@ -2,6 +2,7 @@ import {ViewStream} from 'spyne';
 import {PagesHolderView} from '../pages/pages-holder-view';
 import {AppMenuView} from './app-menu-view';
 import {AudioPlayer} from '../audio/audio-player-view';
+import {GateKeeperView} from '../gateway/gatekeeper-view';
 
 export class AppView extends ViewStream {
 
@@ -12,7 +13,9 @@ export class AppView extends ViewStream {
 
     addActionListeners() {
         return [
-            ['CHANNEL_ROUTE_*', 'onChannelRouteEvent']
+            ['CHANNEL_ROUTE_*', 'onChannelRouteEvent'],
+            ['CHANNEL_GATEWAY.*PASSWORD_CORRECT_EVENT', 'onGatewayCompleted'],
+
         ];
 
     }
@@ -43,8 +46,13 @@ export class AppView extends ViewStream {
         //window.setTimeout(sendPayload, 5000);
     }
 
-
     afterRender(){
+        this.appendView(new GateKeeperView());
+        this.addChannel("CHANNEL_GATEWAY");
+    }
+
+
+    onGatewayCompleted(){
 
 
         this.appendView(new AppMenuView());
