@@ -8,7 +8,12 @@
 @import "03-components/images/images.scss";
 @import "03-components/photogs/photogs.scss";
 @import "03-components/pages/pages.scss";
+@import "03-components/audio/audio-player.scss";
 
+html, body{
+   // -webkit-transform-style: preserve-3d;
+   // -webkit-backface-visibility: hidden;
+}
 
 html {
   //  position:fixed;
@@ -16,8 +21,8 @@ html {
     overflow:default;
     //will-change: scroll-position, top;
     &.expand {
-        position: fixed;
-        overflow: hidden;;
+     //   position: fixed;
+       // overflow: hidden;;
         //touch-action: none;
        // pointer-events: none;
     }
@@ -91,12 +96,13 @@ body {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+  //  height: 100%;
+    overflow-x:hidden;
 
     #example-app {
         position: relative;
         width: 100vw;
-        height:100vh;
+        //height:100vh;
         background: slate;
         display: flex;
         // flex-direction: column;

@@ -1,6 +1,7 @@
 import {ViewStream} from 'spyne';
 import {PagesHolderView} from '../pages/pages-holder-view';
 import {AppMenuView} from './app-menu-view';
+import {AudioPlayer} from '../audio/audio-player-view';
 
 export class AppView extends ViewStream {
 
@@ -48,6 +49,8 @@ export class AppView extends ViewStream {
 
         this.appendView(new AppMenuView());
         this.appendView(new PagesHolderView());
+
+        this.appendView(new AudioPlayer());
         this.testSendPayload();
         this.addChannel("ROUTE");
 

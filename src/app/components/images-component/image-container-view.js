@@ -15,7 +15,9 @@ export class ImageContainerView extends ViewStream {
 
 	addActionListeners() {
 		// return nexted array(s)
-		return [];
+		return [
+		    ["CHANNEL_VIDEO_SYNC_EVENT", 'onSyncScrollEvent']
+        ];
 	}
 
 	broadcastEvents() {
@@ -23,11 +25,26 @@ export class ImageContainerView extends ViewStream {
 		return [];
 	}
 
+	syncScroll(id){
+	    let el = document.querySelector(id);
+        TweenMax.to(window, 2, {scrollTo:{y:el, offsetY:70,  autoKill: false,    ease:Power1.easeInOut}});
+    }
+
+	onSyncScrollEvent(item){
+	    let payload = item.channelPayload;
+	    let elId = payload.label;
+	    this.syncScroll(elId);
+	    //let el = this.props.el$.query(payload.label).el;
+
+	    console.log('item to scroll is ',payload);
+
+    }
+
 	addAnimation(){
         var elAll = document.querySelectorAll('section article')
         var tl = new TimelineMax();
         var addScrollAnim1 = (el)=>{
-            tl.to(window, 3, {scrollTo:{y:el, offsetY:70,  ease:Sine.easeIn}}, "+=1");
+            tl.to(window, 2, {scrollTo:{y:el, offsetY:70, autoKill: false,  ease:Power1.easeInOut}}, "+=1");
         };
         elAll.forEach(addScrollAnim1);
 
@@ -51,7 +68,7 @@ export class ImageContainerView extends ViewStream {
 
 	   this.photosData.forEach(loadImg);
 
-	   window.setTimeout(this.addAnimation.bind(this), 6000);
+	  // window.setTimeout(this.addAnimation.bind(this), 1000);
 
     }
 
@@ -60,6 +77,8 @@ export class ImageContainerView extends ViewStream {
     }
 
 	afterRender() {
+	    this.addChannel("CHANNEL_VIDEO");
+
        const img$ = this.getChannel("ChannelData500px")
            .take(1)
            .subscribe(this.loadImages.bind(this));

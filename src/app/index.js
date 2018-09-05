@@ -1,5 +1,7 @@
 import {AppView} from "./components/app/app-view";
 import {SpyneApp, ViewStream, ChannelsBaseData} from 'spyne';
+import {ChannelVideo} from './channels/channel-video';
+import {ChannelData500px} from './channels/channel-data-500px';
 const R = require('ramda');
 
 const css = require("./../scss/main.scss");
@@ -57,16 +59,27 @@ window.onStartApp = function() {
 
     const spyneApp = new SpyneApp(spyneConfig);
     const reHttps = /^(https:)(.*)$/;
+
+    const createSentence = (str)=>{
+        let re = /(\w)(.*)/gm;
+        let fn = (src, $1, $2) =>{
+            return String($1.toUpperCase())+$2+".";
+        };
+        return str.replace(re, fn);
+    };
+
     const mapFn = (data) => {
         const updates = (img) => {
             img.description = img.description === null
                 ? 'untitled'
                 : img.description;
+            img.description = createSentence(img.description);
+            console.log(img.description);
             img['perpsectiveNum'] = String((img.height / img.width) * 100 +
                 "%");
             img['image_url'] = img.urls.small;
             img.user['userpic_url'] = String(img.user.profile_image.large).replace(reHttps, '$2');
-            console.log('img is ',img);
+            //console.log('img is ',img);
             return img;
         };
         data.photos = R.map(updates, data.results);
@@ -78,7 +91,8 @@ window.onStartApp = function() {
         map: mapFn
     };
 
-    spyneApp.registerDataChannel(new ChannelsBaseData(pixData));
+    spyneApp.registerDataChannel(new ChannelData500px(pixData));
+    spyneApp.registerDataChannel(new ChannelVideo());
 
     const App = new AppView({
         el: document.getElementById('example-app')

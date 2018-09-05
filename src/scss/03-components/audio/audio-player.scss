@@ -1,0 +1,18 @@
+#audio-player{
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    audio{
+        position: relative;
+        width: 100%;
+        height: 80%;
+        margin: 10px 20px;
+    }
+}
