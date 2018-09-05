@@ -21,7 +21,7 @@
             margin: 0 0 20px 0;
             min-width: 320px;
             width:100%;
-            background: hsl(0,0,90);
+            //background: hsl(0,0,90);
 /*
             // background: orange;
             border-radius: 2px;
@@ -118,10 +118,14 @@
                     width:100%;
                     margin:0;
                     padding: 10px;
-                    p {
+                    background: #fff;
+                    border-top-left-radius: 3px;
+                    border-top-right-radius: 3px;
+                    h2,h3,h4,h5 {
                         position: relative;
                         margin:0;
                         padding:0;
+                        color: #4242c4;
                     }
 
                 }

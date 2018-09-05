@@ -16,7 +16,7 @@ const spyneConfig = {
             }
         },
 
-        ROUTE: {
+        ROUTE1: {
             type: 'slash',
             isHash: false,
             isHidden: false,
