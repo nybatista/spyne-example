@@ -524,7 +524,7 @@ template {
 #example-app section#menu {
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   z-index: 500;
@@ -546,6 +546,8 @@ template {
       padding: 0 10px;
       margin: 0 2px;
       cursor: pointer; }
+    #example-app section#menu header#navbar h4 {
+      margin: 4px 2px 0px 2px; }
   #example-app section#menu svg {
     position: relative;
     left: 0;
@@ -565,10 +567,13 @@ template {
 #example-app #images-container {
   position: relative;
   width: 100vw;
-  max-width: 90vw;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 40px 0 0 0;
-  padding: 20px 0; }
+  padding: 20px 0;
+  background: cadetblue; }
   #example-app #images-container article {
     position: relative;
     max-width: 750px;
@@ -576,12 +581,10 @@ template {
     margin: 0 0 20px 0;
     min-width: 320px;
     width: 100%;
-    background: #e6e6e6;
     /*
             // background: orange;
             border-radius: 2px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
-    height: 580px;
     transition: all .3s  ease-in-out; }
     #example-app #images-container article.fadeout-image {
       opacity: 0;
@@ -635,11 +638,15 @@ template {
         position: relative;
         width: 100%;
         margin: 0;
-        padding: 10px; }
-        #example-app #images-container article dl dd p {
+        padding: 10px;
+        background: #fff;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px; }
+        #example-app #images-container article dl dd h2, #example-app #images-container article dl dd h3, #example-app #images-container article dl dd h4, #example-app #images-container article dl dd h5 {
           position: relative;
           margin: 0;
-          padding: 0; }
+          padding: 0;
+          color: #4242c4; }
 
 #example-app #photogs-container {
   position: relative;

@@ -23,6 +23,19 @@ export class ImageContainerView extends ViewStream {
 		return [];
 	}
 
+	addAnimation(){
+        var elAll = document.querySelectorAll('section article')
+        var tl = new TimelineMax();
+        var addScrollAnim1 = (el)=>{
+            tl.to(window, 3, {scrollTo:{y:el, offsetY:70,  ease:Sine.easeIn}}, "+=1");
+        };
+        elAll.forEach(addScrollAnim1);
+
+
+
+    }
+
+
 
 
 	loadImages(item){
@@ -30,10 +43,16 @@ export class ImageContainerView extends ViewStream {
 	    const loadImg = (data, i)=>{
 	        data['indexNum']=i+1;
 	       // console.log('data ',data);
-	        this.appendView(new ImagesView({data}));
+	        this.appendView(new ImagesView({
+                id: "img-"+i*1,
+                data
+	        }));
         };
 
 	   this.photosData.forEach(loadImg);
+
+	   window.setTimeout(this.addAnimation.bind(this), 6000);
+
     }
 
     afterRender2(){

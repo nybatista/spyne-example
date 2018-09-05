@@ -64,7 +64,7 @@ window.onStartApp = function() {
                 : img.description;
             img['perpsectiveNum'] = String((img.height / img.width) * 100 +
                 "%");
-            img['image_url'] = img.urls.full;
+            img['image_url'] = img.urls.small;
             img.user['userpic_url'] = String(img.user.profile_image.large).replace(reHttps, '$2');
             console.log('img is ',img);
             return img;
