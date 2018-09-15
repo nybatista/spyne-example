@@ -1,4 +1,5 @@
-import {AsyncSubject, Observable} from "rxjs";
+import {AsyncSubject, Observable, from} from "rxjs";
+import {flatMap, map, multicast} from 'rxjs/operators';
 const R = require('ramda');
 import {ChannelsBase, ChannelStreamItem} from 'spyne';
 import 'whatwg-fetch';
@@ -69,12 +70,14 @@ export class ChannelData500px extends ChannelsBase {
         };
 
 
-        let response$ = Observable.fromPromise(fetch(this.props.dataUrl))
-        .flatMap(r => Observable.fromPromise(r.json()))
-        .map(mapData)
-        .map(createChannelStreamItem)
+        let response$ = from(fetch(this.props.dataUrl))
+        .pipe(
+        flatMap(r => Observable.fromPromise(r.json())),
+        map(mapData),
+        map(createChannelStreamItem),
+        multicast(this.observer$)
         // .do((p)=>console.log('rxjs jsoin ',p))
-        .multicast(this.observer$);
+        );
 
         response$.connect();
 

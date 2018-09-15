@@ -1,5 +1,5 @@
-import {AsyncSubject, Subject,Observable} from 'rxjs';
-import {filter,fromPromise, tap} from 'rxjs/operators';
+import {AsyncSubject, Subject,Observable, from} from 'rxjs';
+import {filter,fromPromise, tap, flatMap, map} from 'rxjs/operators';
 import {ChannelsBase, ChannelStreamItem} from 'spyne';
 
 export class ChannelGateway extends ChannelsBase {
@@ -71,7 +71,9 @@ export class ChannelGateway extends ChannelsBase {
     this.localStorage$ = this.getChannel('CHANNEL_LOCALSTORAGE');
 
     this.localStorage$
-    .filter(filterGetEvent)
+    .pipe(
+    filter(filterGetEvent)
+     )
         .subscribe(onLocalStorageGatewayPwdCheck);
 
 
@@ -107,7 +109,7 @@ export class ChannelGateway extends ChannelsBase {
 
     //console.log('channel post data ',data,spyneName,pwd);
 
-    let response$ = Observable.fromPromise(fetch(
+    let response$ = from(fetch(
         url, {
           method: "POST", // *GET, POST, PUT, DELETE, etc.
           mode: "cors", // no-cors, cors, *same-origin
@@ -119,9 +121,11 @@ export class ChannelGateway extends ChannelsBase {
           body: JSON.stringify(data), // body data type must match "Content-Type" header
         }
     ))
-    .flatMap(r => Observable.fromPromise(r.json()))
-    .map(addLocalStorageValMap)
-    .map(createChannelStreamItem)
+    .pipe(
+        flatMap(r => from(r.json())),
+    map(addLocalStorageValMap),
+    map(createChannelStreamItem)
+    )
         .subscribe(this.onSendFetchEvent.bind(this));
        // .multicast(this.observer$);
 

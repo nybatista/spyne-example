@@ -9,7 +9,7 @@
     "doc": "doc"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --history-api-fallback",
+    "start": "webpack-dev-server --mode development --env build --history-api-fallback",
     "startBasic": "webpack-dev-server --open",
     "dev": "webpack-dev-server --inline  --mode development --progress --colors --watch  ",
     "buildFlag": "webpack --bail --env dist -p",
@@ -27,9 +27,9 @@
   "dependencies": {
     "gsap": "^2.0.1",
     "ramda": "^0.25.0",
-    "rxjs": "^6.2.2",
-    "rxjs-compat": "^6.2.2",
-    "spyne": "^0.8.18",
+    "rxjs": "^6.3.2",
+    "rxjs-compat": "^6.3.2",
+    "spyne": "^0.8.19",
     "webdriverio": "^4.13.1",
     "whatwg-fetch": "^2.0.4"
   },
