@@ -1,7 +1,9 @@
 import {AppView} from "./components/app/app-view";
 import {SpyneApp, ViewStream, ChannelsBaseData} from 'spyne';
-const R = require('ramda');
+import {ChannelExample} from './channels/channel-example';
 
+const R = require('ramda');
+window.R = R;
 const css = require("./../scss/main.scss");
 
 
@@ -79,12 +81,13 @@ window.onStartApp = function() {
     };
 
     spyneApp.registerDataChannel(new ChannelsBaseData(pixData));
+    spyneApp.registerDataChannel(new ChannelExample());
 
     const App = new AppView({
         el: document.getElementById('example-app')
     });
 
-    console.log('Spyne: ',Spyne.VERSION);
+    console.log('Spyne: is a ',Spyne.VERSION);
 
 };
 

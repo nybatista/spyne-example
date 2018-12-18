@@ -21,6 +21,16 @@ export class PageEmptyView extends ViewStream {
 
 	onClicked(item){
 	    console.log('item is clicked ');
+	    let action = 'CHANNEL_EXAMPLE_PAYLOAD_RECEIVED_EVENT';
+
+	    let obj = {
+	        "testKey" : "the value returned"
+        };
+
+
+	    this.sendChannelPayload('CHANNEL_EXAMPLE', obj, action);
+
+
 	    this.props.el$.query('article').setActiveItem('article', 'test1');
     }
 
